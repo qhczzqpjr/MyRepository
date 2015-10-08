@@ -1,0 +1,5 @@
+C:\Users\v-thzhu\documents\visual studio 2013\Projects\XSearch\XSearch.Common\bin\Debug\XSearch.Common.dll
+C:\Users\v-thzhu\documents\visual studio 2013\Projects\XSearch\XSearch.Common\bin\Debug\XSearch.Common.pdb
+C:\Users\v-thzhu\documents\visual studio 2013\Projects\XSearch\XSearch.Common\obj\Debug\XSearch.Common.dll
+C:\Users\v-thzhu\documents\visual studio 2013\Projects\XSearch\XSearch.Common\obj\Debug\XSearch.Common.pdb
+C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\XSearch\XSearch.Common\obj\Debug\XSearch.Common.csprojResolveAssemblyReference.cache

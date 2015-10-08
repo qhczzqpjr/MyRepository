@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="XSearch.Views.ObjsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d"
+        xmlns:prism="clr-namespace:Microsoft.Practices.Prism.Mvvm;assembly=Microsoft.Practices.Prism.Mvvm.Desktop"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        d:DesignHeight="50" d:DesignWidth="300" Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ComboBox Grid.Column="0" FontSize="18" x:Name="CbSearch" IsEditable="True"
+        ItemsSource="{Binding Model.ObjsList}"
+        SelectedValue="{Binding Obj}"
+                  SelectedValuePath="Id"
+                  DisplayMemberPath="Key"
+                  SelectionChanged="cbSearch_SelectionChanged" KeyDown="cbSearch_KeyDown"/>
+        <TextBox Grid.Column="0" Name="EditableTextBox" Text="{Binding ElementName=CbSearch, Path=Text}" Visibility="Hidden" TextChanged="OnComboBoxTextChanged"/>
+        <Image Grid.Column="1" Source="{Binding ImgSrc}"/>
+    </Grid>
+</UserControl>

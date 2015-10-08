@@ -1,0 +1,4 @@
+# -*- coding:cp936 -*-
+# Hello World in Chinese
+print "ÄúºÃ£¬ÊÀ½ç£¡"
+raw_input("Press enter any key to close the window");

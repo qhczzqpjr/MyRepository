@@ -17,3 +17,22 @@ C:\Users\v-thzhu\documents\visual studio 2013\Projects\XSearch\XSearch.Business\
 C:\Users\v-thzhu\documents\visual studio 2013\Projects\XSearch\XSearch.Business\bin\Debug\XSearch.Data.pdb
 C:\Users\v-thzhu\documents\visual studio 2013\Projects\XSearch\XSearch.Business\obj\Debug\XSearch.B.dll
 C:\Users\v-thzhu\documents\visual studio 2013\Projects\XSearch\XSearch.Business\obj\Debug\XSearch.B.pdb
+G:\GitHub\MyRepository\XSearch\XSearch.Business\bin\Debug\XSearch.B.dll.config
+G:\GitHub\MyRepository\XSearch\XSearch.Business\bin\Debug\XSearch.B.dll
+G:\GitHub\MyRepository\XSearch\XSearch.Business\bin\Debug\XSearch.B.pdb
+G:\GitHub\MyRepository\XSearch\XSearch.Business\bin\Debug\AutoMapper.dll
+G:\GitHub\MyRepository\XSearch\XSearch.Business\bin\Debug\EntityFramework.dll
+G:\GitHub\MyRepository\XSearch\XSearch.Business\bin\Debug\EntityFramework.SqlServer.dll
+G:\GitHub\MyRepository\XSearch\XSearch.Business\bin\Debug\StructureMap.dll
+G:\GitHub\MyRepository\XSearch\XSearch.Business\bin\Debug\XSearch.Common.dll
+G:\GitHub\MyRepository\XSearch\XSearch.Business\bin\Debug\XSearch.DAL.dll
+G:\GitHub\MyRepository\XSearch\XSearch.Business\bin\Debug\XSearch.Data.dll
+G:\GitHub\MyRepository\XSearch\XSearch.Business\bin\Debug\XSearch.Common.pdb
+G:\GitHub\MyRepository\XSearch\XSearch.Business\bin\Debug\XSearch.DAL.pdb
+G:\GitHub\MyRepository\XSearch\XSearch.Business\bin\Debug\XSearch.Data.pdb
+G:\GitHub\MyRepository\XSearch\XSearch.Business\bin\Debug\AutoMapper.xml
+G:\GitHub\MyRepository\XSearch\XSearch.Business\bin\Debug\EntityFramework.xml
+G:\GitHub\MyRepository\XSearch\XSearch.Business\bin\Debug\EntityFramework.SqlServer.xml
+G:\GitHub\MyRepository\XSearch\XSearch.Business\obj\Debug\XSearch.Business.csprojResolveAssemblyReference.cache
+G:\GitHub\MyRepository\XSearch\XSearch.Business\obj\Debug\XSearch.B.dll
+G:\GitHub\MyRepository\XSearch\XSearch.Business\obj\Debug\XSearch.B.pdb

@@ -1,0 +1,18 @@
+<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+
+  <Databases>
+    <Database Name="Speed" ConnectionName="Conn_Speed"/>
+  </Databases>
+  <Schemas>
+    <Schema Name="dbo" DatabaseName="Speed"/>
+  </Schemas>
+  
+  <Connections>
+    <Connection Name="Conn_Speed" ConnectionString="Data Source=.; Initial Catalog =Speed; Integrated Security=true"/>
+      
+  
+  </Connections>
+  
+  
+  
+</Biml>

@@ -27,22 +27,11 @@ namespace XSearch.Views
     /// <summary>
     /// Interaction logic for SearchView.xaml
     /// </summary>
-    public partial class ObjsView   : UserControl, IView
+    public partial class ObjsView   : IView
     {
         public ObjsView()
         {
             InitializeComponent();
-            //var objView = new ObjView();
-            //var objViewModel = new ObjViewModel();
-            //objView.DataContext = objViewModel;
-
-            //ItemsView = CollectionViewSource.GetDefaultView(StaticClass.objLists);
-            //CbSearch.ItemsSource = StaticClass.objLists;
-            //cbSearch.ItemsSource = StaticClass.objLists;
-            //cbSearch.DisplayMemberPath = "Key";
-            //cbSearch.SelectedValuePath = "Id";
-
-            //iw.Hide();
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)

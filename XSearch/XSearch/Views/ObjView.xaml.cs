@@ -21,7 +21,7 @@ namespace XSearch.Views
     /// <summary>
     /// Interaction logic for ObjView.xaml
     /// </summary>
-    public partial class ObjView : UserControl,IView
+    public partial class ObjView : IView
     {
         public ObjView()
         {
@@ -29,33 +29,33 @@ namespace XSearch.Views
         }
         private void MenuItem_Click_Insert(object sender, RoutedEventArgs e)
         {
-            if (!(String.IsNullOrEmpty(this.tbkey.Text) || String.IsNullOrEmpty(this.tbValue.Text)))
+            if (!(string.IsNullOrEmpty(this.Tbkey.Text) || string.IsNullOrEmpty(this.TbValue.Text)))
             {
-                using (XSearchDBManagementRepository repo = new XSearchDBManagementRepository())
+                using (var repo = new XSearchDbManagementRepository())
                 {
-                    repo.Insert<Obj>(new Obj() { Key = tbkey.Text, Value = tbValue.Text, CreateDateTime = DateTime.UtcNow }, true);
+                    repo.Insert<Obj>(new Obj() { Key = Tbkey.Text, Value = TbValue.Text, CreateDateTime = DateTime.UtcNow }, true);
                 }
             }
         }
 
         private void MenuItem_Click_Update(object sender, RoutedEventArgs e)
         {
-            if (!String.IsNullOrEmpty(this.tbId.Text))
+            if (!string.IsNullOrEmpty(this.TbId.Text))
             {
-                using (XSearchDBManagementRepository repo = new XSearchDBManagementRepository())
+                using (var repo = new XSearchDbManagementRepository())
                 {
-                    repo.Update<Obj>(new Obj() { Id = int.Parse(tbId.Text), Key = tbkey.Text, Value = tbValue.Text, CreateDateTime = DateTime.UtcNow }, true);
+                    repo.Update<Obj>(new Obj() { Id = int.Parse(TbId.Text), Key = Tbkey.Text, Value = TbValue.Text, CreateDateTime = DateTime.UtcNow }, true);
                 }
             }
         }
 
         private void MenuItem_Click_Delete(object sender, RoutedEventArgs e)
         {
-            if (!String.IsNullOrEmpty(this.tbId.Text))
+            if (!string.IsNullOrEmpty(this.TbId.Text))
             {
-                using (XSearchDBManagementRepository repo = new XSearchDBManagementRepository())
+                using (var repo = new XSearchDbManagementRepository())
                 {
-                    repo.Delete<Obj>(new Obj() { Id = int.Parse(tbId.Text), Key = tbkey.Text, Value = tbValue.Text, CreateDateTime = DateTime.UtcNow }, true);
+                    repo.Delete<Obj>(new Obj() { Id = int.Parse(TbId.Text), Key = Tbkey.Text, Value = TbValue.Text, CreateDateTime = DateTime.UtcNow }, true);
                 }
             }
         }
@@ -64,33 +64,33 @@ namespace XSearch.Views
         {
             if (e.Key == Key.U && (Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
             {
-                if (!String.IsNullOrEmpty(this.tbId.Text))
+                if (!string.IsNullOrEmpty(this.TbId.Text))
                 {
-                    using (XSearchDBManagementRepository repo = new XSearchDBManagementRepository())
+                    using (var repo = new XSearchDbManagementRepository())
                     {
-                        repo.Update<Obj>(new Obj() { Id = int.Parse(tbId.Text), Key = tbkey.Text, Value = tbValue.Text, CreateDateTime = DateTime.UtcNow }, true);
+                        repo.Update<Obj>(new Obj() { Id = int.Parse(TbId.Text), Key = Tbkey.Text, Value = TbValue.Text, CreateDateTime = DateTime.UtcNow }, true);
                     }
                 }
             }
 
             if (e.Key == Key.N && (Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
             {
-                if (!(String.IsNullOrEmpty(this.tbkey.Text) || String.IsNullOrEmpty(this.tbValue.Text)))
+                if (!(string.IsNullOrEmpty(this.Tbkey.Text) || string.IsNullOrEmpty(this.TbValue.Text)))
                 {
-                    using (XSearchDBManagementRepository repo = new XSearchDBManagementRepository())
+                    using (var repo = new XSearchDbManagementRepository())
                     {
-                        repo.Insert<Obj>(new Obj() { Key = tbkey.Text, Value = tbValue.Text, CreateDateTime = DateTime.UtcNow }, true);
+                        repo.Insert<Obj>(new Obj() { Key = Tbkey.Text, Value = TbValue.Text, CreateDateTime = DateTime.UtcNow }, true);
                     }
                 }
             }
 
             if (e.Key == Key.D && (Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
             {
-                if (!String.IsNullOrEmpty(this.tbId.Text))
+                if (!string.IsNullOrEmpty(this.TbId.Text))
                 {
-                    using (XSearchDBManagementRepository repo = new XSearchDBManagementRepository())
+                    using (var repo = new XSearchDbManagementRepository())
                     {
-                        repo.Delete<Obj>(new Obj() { Id = int.Parse(tbId.Text), Key = tbkey.Text, Value = tbValue.Text, CreateDateTime = DateTime.UtcNow }, true);
+                        repo.Delete<Obj>(new Obj() { Id = int.Parse(TbId.Text), Key = Tbkey.Text, Value = TbValue.Text, CreateDateTime = DateTime.UtcNow }, true);
                     }
                 }
             }

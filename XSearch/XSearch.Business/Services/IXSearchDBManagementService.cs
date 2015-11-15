@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using XSearch.Business.Models;
 using XSearch.Common;
 
 namespace XSearch.Business.Services
 {
-    public interface IXSearchDBManagementService : IDisposable
+    public interface IXSearchDbManagementService : IDisposable
     {
         IEnumerable<ObjMapping> GetObjMappings(ICriteria criteria);
 

@@ -1,0 +1,24 @@
+<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+  <Packages>
+    
+    <Package Name="FileToDest">
+      <Tasks>
+
+        <Dataflow Name="EXTRACT_dbo_Info">
+
+          <Transformations>
+            <RawFileSource Name="dest_dbo_Info" RawFileFormatName="dbo_Info">
+              <FileInput ConnectionName="dbo_Info" />
+            </RawFileSource>
+
+            <OleDbDestination Name="src_dbo_Info" ConnectionName="Source">
+              <ExternalTableOutput Table="dbo_Info"/>
+            </OleDbDestination>
+          </Transformations>
+
+        </Dataflow>
+      </Tasks>
+    </Package>
+
+  </Packages>
+</Biml>

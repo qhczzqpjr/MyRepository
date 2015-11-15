@@ -12,17 +12,17 @@ namespace XSearch
 {
     public static class StaticClass
     {
-        public static ObservableCollection<Obj> objLists
+        public static ObservableCollection<Obj> ObjLists
         {
             get
             {
-                using (XSearchDBManagementRepository repo = new XSearchDBManagementRepository())
+                using (XSearchDbManagementRepository repo = new XSearchDbManagementRepository())
                 {
                     return new ObservableCollection<Obj>(repo.GetAllObjs());
                 }
 
             }
-            set { objLists = value; }
+            set { ObjLists = value; }
         }
     }
 }

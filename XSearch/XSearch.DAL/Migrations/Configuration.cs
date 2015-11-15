@@ -1,13 +1,9 @@
 namespace XSearch.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
-    using XSearch.DAL;
-    using XSearch.Data;
+    using Data;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<XSearchDBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<XSearchDbContext>
     {
         public Configuration()
         {
@@ -15,7 +11,7 @@ namespace XSearch.Migrations
             //ContextKey = "XSearch.DAL.XSearchDBContext";
         }
 
-        protected override void Seed(XSearch.DAL.XSearchDBContext context)
+        protected override void Seed(XSearchDbContext context)
         {
             context.Objs.AddOrUpdate(new Obj { Key = "ct", Value = "CREATE TABLE" });
         }

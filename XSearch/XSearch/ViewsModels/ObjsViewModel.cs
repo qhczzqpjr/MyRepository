@@ -60,15 +60,13 @@ namespace XSearch.ViewsModels
             get { return _imgSrc; }
             set
             {
-                if (_imgSrc != value)
-                {
-                    _imgSrc = value;
-                    OnPropertyChanged();
-                }
+                if (_imgSrc == value) return;
+                _imgSrc = value;
+                OnPropertyChanged();
             }
         }
 
-        enum SearchMode
+        public enum SearchMode
         {
             ObjSearch,
             RefSearch,

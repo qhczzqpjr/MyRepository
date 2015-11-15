@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using XSearch.Common;
-using XSearch.DAL.Repository.Core;
 using XSearch.Data;
+using XSearch.DAL.Repository.Core;
+using XSearch.Repository.Core;
 
-namespace XSearch.DAL.Repository
+namespace XSearch.Repository
 {
-    public interface IXSearchDBManagementRepository : IRepo
+    public interface IXSearchDbManagementRepository : IRepo
     {
         int GetTotalObjs();
         Obj GetObj(int id);

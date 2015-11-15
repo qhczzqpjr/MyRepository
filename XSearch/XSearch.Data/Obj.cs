@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 //using System.ComponentModel.DataAnnotations;
 namespace XSearch.Data
 {
@@ -17,8 +13,8 @@ namespace XSearch.Data
 
     public enum ObjValueType
     {
-        text = 0,
-        cmd = 1,
-        file = 2,
+        Text = 0,
+        Cmd = 1,
+        File = 2,
     }
 }

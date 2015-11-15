@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using XSearch.Data;
+using XSearch.DAL;
 
-
-namespace XSearch.DAL
+namespace XSearch
 {
-    public class XSearchDBContext : DbContext
+    public class XSearchDbContext : DbContext
     {
-        public XSearchDBContext()
+        public XSearchDbContext()
             : base("XSearch")
         {
             //Database.SetInitializer<XSearchDBContext>(new DropCreateDatabaseIfModelChanges<XSearchDBContext>());
-            Database.SetInitializer<XSearchDBContext>(new CreateDatabaseIfNotExists<XSearchDBContext>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<XSearchDbContext>());
         }
 
         public DbSet<ObjMapping> ObjMappings { get; set; }
@@ -29,10 +25,11 @@ namespace XSearch.DAL
 
     }
 
-    public class SchoolDBInitializer : CreateDatabaseIfNotExists<XSearchDBContext>
+    public class SchoolDbInitializer : CreateDatabaseIfNotExists<XSearchDbContext>
     {
-        protected override void Seed(XSearchDBContext context)
+        protected override void Seed(XSearchDbContext context)
         {
+            if (context == null) throw new ArgumentNullException("context");
             base.Seed(context);
         }
     }

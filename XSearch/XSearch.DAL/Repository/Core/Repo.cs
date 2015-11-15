@@ -6,19 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 using XSearch.DAL;
 using XSearch.DAL.Repository.Core;
+using XSearch.Repository.Core;
 
 namespace XSearch.DAL.Repository.Core
 {
-    public abstract class Repo<XSearchContext> : IRepo
-        where XSearchContext : XSearchDBContext, new()
+    public abstract class Repo<TXSearchContext> : IRepo
+        where TXSearchContext : XSearchDbContext, new()
     {
         protected Repo()
         {
-            _context = new XSearchContext();
+            _context = new TXSearchContext();
         }
 
-        private readonly XSearchContext _context;
-        protected XSearchContext Context { get { return _context; } }
+        private readonly TXSearchContext _context;
+        protected TXSearchContext Context { get { return _context; } }
         public T Insert<T>(T item, bool saveImmediately = true) where T : class,new()
         {
             return PerformAction(item, EntityState.Added, saveImmediately);

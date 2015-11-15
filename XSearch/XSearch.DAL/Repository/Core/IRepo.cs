@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace XSearch.DAL.Repository.Core
+namespace XSearch.Repository.Core
 {
     public interface IRepo : IDisposable
     {

@@ -1,0 +1,14 @@
+C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Vulcan\TableToVulcan\bin\Release\TableToVulcan.exe.config
+C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Vulcan\TableToVulcan\bin\Release\GetCustomExtensionQuery.txt
+C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Vulcan\TableToVulcan\bin\Release\GetIndexesQuery.txt
+C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Vulcan\TableToVulcan\bin\Release\GetUniqueKeysQuery.txt
+C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Vulcan\TableToVulcan\bin\Release\GetPrimaryKeysQuery.txt
+C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Vulcan\TableToVulcan\bin\Release\GetColumnsQuery.txt
+C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Vulcan\TableToVulcan\bin\Release\TableToVulcan.exe
+C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Vulcan\TableToVulcan\bin\Release\TableToVulcan.pdb
+C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Vulcan\TableToVulcan\obj\Release\TableToVulcan.exe
+C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Vulcan\TableToVulcan\obj\Release\TableToVulcan.pdb
+C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Vulcan\TableToVulcan\obj\Release\TableToVulcan.csprojResolveAssemblyReference.cache
+\\gcrcssfs\Public\BPO\BIAR\Readiness\IEBBIDev\th\Vulcan\TableToVulcan\bin\Release\TableToVulcan.exe.config
+\\gcrcssfs\Public\BPO\BIAR\Readiness\IEBBIDev\th\Vulcan\TableToVulcan\obj\Release\TableToVulcan.exe
+\\gcrcssfs\Public\BPO\BIAR\Readiness\IEBBIDev\th\Vulcan\TableToVulcan\obj\Release\TableToVulcan.pdb

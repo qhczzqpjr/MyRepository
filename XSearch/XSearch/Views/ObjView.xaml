@@ -15,7 +15,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="8*"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" FontSize="20" Foreground="White" Margin="10" x:Name="tbId" Text="{Binding Id}">
+            <TextBlock Grid.Row="0" FontSize="20" Foreground="White" Margin="10" x:Name="TbId" Text="{Binding Id}">
                 <TextBlock.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="Insert" Click="MenuItem_Click_Insert"/>
@@ -24,8 +24,8 @@
                     </ContextMenu>
                 </TextBlock.ContextMenu>
             </TextBlock>
-            <TextBox Grid.Row="1" FontSize="18" Foreground="White" Margin="10,0,10,0" Background="Transparent" x:Name="tbkey"  Text="{Binding Key}" KeyDown="tbkey_KeyDown"/>
-            <TextBox Grid.Row="2" FontSize="18" Foreground="White" Margin="10,0,10,12" Background="Transparent" x:Name="tbValue" Text="{Binding Value}" KeyDown="tbkey_KeyDown"/>
+            <TextBox Grid.Row="1" FontSize="18" Foreground="White" Margin="10,0,10,0" Background="Transparent" x:Name="Tbkey"  Text="{Binding Key}" KeyDown="tbkey_KeyDown"/>
+            <TextBox Grid.Row="2" FontSize="18" Foreground="White" Margin="10,0,10,12" Background="Transparent" x:Name="TbValue" Text="{Binding Value}" KeyDown="tbkey_KeyDown"/>
         </Grid>
     </Grid>
 </UserControl>

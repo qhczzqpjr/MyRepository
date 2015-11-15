@@ -38,3 +38,24 @@ C:\Users\v-thzhu\documents\visual studio 2013\Projects\XSearch\XSearch.DAL\obj\D
 C:\Users\v-thzhu\documents\visual studio 2013\Projects\XSearch\XSearch.DAL\obj\Debug\XSearch.DAL.pdb
 C:\Users\v-thzhu\documents\visual studio 2013\Projects\XSearch\XSearch.DAL\bin\Debug\XSearch.Data.dll
 C:\Users\v-thzhu\documents\visual studio 2013\Projects\XSearch\XSearch.DAL\bin\Debug\XSearch.Data.pdb
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\bin\Debug\XSearch.DAL.dll.config
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\bin\Debug\XSearch.DAL.dll
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\bin\Debug\XSearch.DAL.pdb
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\bin\Debug\EntityFramework.dll
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\bin\Debug\EntityFramework.SqlServer.dll
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\bin\Debug\EntityFramework.SqlServerCompact.dll
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\bin\Debug\System.Data.SQLite.dll
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\bin\Debug\System.Data.SQLite.EF6.dll
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\bin\Debug\System.Data.SQLite.Linq.dll
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\bin\Debug\System.Data.SqlServerCe.dll
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\bin\Debug\XSearch.Common.dll
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\bin\Debug\XSearch.Data.dll
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\bin\Debug\XSearch.Common.pdb
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\bin\Debug\XSearch.Data.pdb
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\bin\Debug\EntityFramework.xml
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\bin\Debug\EntityFramework.SqlServer.xml
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\bin\Debug\EntityFramework.SqlServerCompact.xml
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\bin\Debug\System.Data.SQLite.xml
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\obj\Debug\XSearch.DAL.csprojResolveAssemblyReference.cache
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\obj\Debug\XSearch.DAL.dll
+G:\GitHub\MyRepository\XSearch\XSearch.DAL\obj\Debug\XSearch.DAL.pdb

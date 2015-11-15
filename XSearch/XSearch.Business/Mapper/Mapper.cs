@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using StructureMap;
+﻿using StructureMap;
 using XSearch.Business.Models;
 using XSearch.Business.Services;
-using Data = XSearch.Data;
 
-namespace XSearch.Business.Mapperings
+namespace XSearch.Business.Mapper
 {
     public static class Mapper
     {
@@ -25,8 +19,8 @@ namespace XSearch.Business.Mapperings
         {
             ObjectFactory.Configure(factory =>
             {
-                factory.For<IXSearchDBManagementService>().Use<XSearchDBManagementService>();
-                factory.For<IXSearchDBManagementService>().Use<XSearchDBManagementService>();
+                factory.For<IXSearchDbManagementService>().Use<XSearchDbManagementService>();
+                factory.For<IXSearchDbManagementService>().Use<XSearchDbManagementService>();
             });
         }
     }

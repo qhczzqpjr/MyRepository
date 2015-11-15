@@ -1,0 +1,50 @@
+﻿--Part1
+;
+WITH    FK
+          AS ( SELECT   s.name ColumnName ,
+                        '<Dimension Name="' + s.name + '" DimensionName="'
+                        + tables.name + '" ForeignKeyNameOverride="'
+                        + foreign_keys.name + '"/>' AS XMLValue
+               FROM     sys.foreign_keys
+                        INNER JOIN sys.foreign_key_columns f ON constraint_object_id = object_id
+                        INNER JOIN sys.columns ON f.referenced_object_id = columns.object_id
+                                                  AND referenced_column_id = column_id
+                        INNER JOIN SYS.tables ON tables.object_id = columns.object_id
+                        INNER JOIN sys.columns s ON parent_column_id = s.column_id
+                                                    AND f.parent_object_id = s.object_id
+               WHERE    sys.foreign_keys.parent_object_id = OBJECT_ID('@Schema.@Table')
+             )
+    SELECT  CASE WHEN FK.ColumnName IS NULL
+                 THEN '<Column Name="' + COLUMN_NAME + '" '
+                      + CASE WHEN DATA_TYPE = 'bit' THEN 'Type="Boolean"'
+                             WHEN DATA_TYPE = 'datetime'
+                             THEN 'Type="DateTime"'
+                             WHEN DATA_TYPE = 'uniqueidentifier'
+                             THEN 'Type="Guid"'
+                             WHEN DATA_TYPE = 'smallint' THEN 'Type="Int16"'
+                             WHEN DATA_TYPE = 'int' THEN 'Type="Int32"'
+                             WHEN DATA_TYPE = 'bigint' THEN 'Type="Int64"'
+                             WHEN DATA_TYPE = 'nvarchar'
+                                  AND CHARACTER_MAXIMUM_LENGTH <> -1
+                             THEN 'Type="String" Length="'
+                                  + CONVERT(NVARCHAR(8), CHARACTER_MAXIMUM_LENGTH)
+                                  + '"'
+                             WHEN DATA_TYPE = 'datetime2'
+                             THEN 'Type="DateTime2"'
+                             ELSE 'Type ="Object" CustomType ="'
+                                  + REPLACE(DATA_TYPE, 'timestamp',
+                                            'rowversion') + ISNULL('('
+                                                              + REPLACE(CHARACTER_MAXIMUM_LENGTH,
+                                                              -1, 'max') + ')',
+                                                              '') + '"'
+                        END + ' ' + 'IsNullable="' + CASE IS_NULLABLE
+                                                       WHEN 'NO' THEN 'false'
+                                                       WHEN 'YES' THEN 'true'
+                                                     END + '" '
+                      + ISNULL('Default="' + COLUMN_DEFAULT + '"', '') + '/>'
+                 ELSE XMLValue
+            END
+    FROM    INFORMATION_SCHEMA.COLUMNS CL
+            LEFT JOIN FK ON CL.COLUMN_NAME = FK.ColumnName
+    WHERE   TABLE_NAME = '@Table'
+            AND TABLE_SCHEMA = '@Schema';

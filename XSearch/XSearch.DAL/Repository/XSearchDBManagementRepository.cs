@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using XSearch.DAL.Repository.Core;
 using XSearch.Data;
 using XSearch.Common;
+using XSearch.Repository;
 
 namespace XSearch.DAL.Repository
 {
-    public class XSearchDBManagementRepository : Repo<XSearchDBContext>, IXSearchDBManagementRepository
+    public class XSearchDbManagementRepository : Repo<XSearchDbContext>, IXSearchDbManagementRepository
     {
         #region Obj
         public IEnumerable<Obj> GetAllObjs()

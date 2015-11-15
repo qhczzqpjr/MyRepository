@@ -1,0 +1,59 @@
+<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+  <Tables>
+    <Table Name="Me" SchemaName="Speed.dbo">
+      <Columns>
+        <Column Name="InfoId" DataType="Int32" IsNullable="false" />
+        <Column Name="Info" DataType="String" Length="200" IsNullable="false" />
+        <Column Name="Catagory" DataType ="Object" CustomType ="varchar(200)" IsNullable="false" />
+        <Column Name="SearchCode" DataType="String" Length="50" IsNullable="true" />
+        <Column Name="SearchDescription" DataType ="Object" CustomType ="nvarchar(max)" IsNullable="true" />
+        <Column Name="Status" DataType="Int32" IsNullable="true" />
+        <Column Name="Status" DataType="Currency" IsNullable="true" Precision="" Scale=""/>
+      </Columns>
+    </Table>
+    <Table Name="" SchemaName="">
+      <Columns>
+      <Column Name="InfoId" DataType="Int32" IsNullable="0" />
+      <Column Name="Info" DataType="String" Length="200" IsNullable="0" />
+      <Column Name="Catagory" DataType="AnsiString" Length="200" IsNullable="0" />
+      <Column Name="SearchCode" DataType="String" Length="50" IsNullable="1" />
+      <Column Name="SearchDescription" DataType="String" Length="-1" IsNullable="1" />
+      <Column Name="Status" DataType="Int32" IsNullable="1" />
+      <Column Name="COL1" DataType="Binary" Length="2147483647" IsNullable="1" />
+      <Column Name="COL2" DataType="AnsiString" Length="2147483647" IsNullable="1" />
+      <Column Name="COL3" DataType="Guid" IsNullable="1" />
+      <Column Name="COL4" DataType="Date" IsNullable="1" />
+      <Column Name="COL5" DataType="Time" IsNullable="1" />
+      <Column Name="COL6" DataType="DateTime2" IsNullable="1" />
+      <Column Name="COL7" DataType="DateTimeOffset" IsNullable="1" />
+      <Column Name="COL8" DataType="Byte" IsNullable="1" />
+      <Column Name="COL9" DataType="Int16" IsNullable="1" />
+      <Column Name="COL10" DataType="Int32" IsNullable="1" />
+      <Column Name="COL11" DataType="DateTime" IsNullable="1" />
+      <Column Name="COL12" DataType="Single" IsNullable="1" />
+      <Column Name="COL13" DataType="Currency" IsNullable="1" />
+      <Column Name="COL14" DataType="DateTime" IsNullable="1" />
+      <Column Name="COL15" DataType="Double" IsNullable="1" />
+      <Column Name="COL16" DataType="Object" Length="0" IsNullable="1" />
+      <Column Name="COL17" DataType="String" Length="1073741823" IsNullable="1" />
+      <Column Name="COL18" DataType="Boolean" IsNullable="1" />
+      <Column Name="COL19" DataType="Decimal" Precision="18" Scale="18" IsNullable="1" />
+      <Column Name="COL20" DataType="Decimal" Precision="18" Scale="18" IsNullable="1" />
+      <Column Name="COL21" DataType="Currency" IsNullable="1" />
+      <Column Name="COL22" DataType="Int64" IsNullable="1" />
+      <Column Name="COL23" DataType="Object" Length="892" IsNullable="1" />
+      <Column Name="COL24" DataType="Object" Length="-1" IsNullable="1" />
+      <Column Name="COL25" DataType="Object" Length="-1" IsNullable="1" />
+      <Column Name="COL26" DataType="Binary" Length="1" IsNullable="1" />
+      <Column Name="COL27" DataType="AnsiString" Length="1" IsNullable="1" />
+      <Column Name="COL28" DataType="Binary" Length="1" IsNullable="1" />
+      <Column Name="COL29" DataType="AnsiStringFixedLength" Length="1" IsNullable="1" />
+      <Column Name="COL30" DataType="Object" IsNullable="0" />
+      <Column Name="COL31" DataType="String" Length="1" IsNullable="1" />
+      <Column Name="COL32" DataType="StringFixedLength" Length="1" IsNullable="1" />
+      <Column Name="COL33" DataType="Xml" Length="-1" IsNullable="1" />
+      <Column Name="COL34" DataType="String" Length="128" IsNullable="0" />
+      </Columns>
+    </Table>
+  </Tables>
+</Biml>

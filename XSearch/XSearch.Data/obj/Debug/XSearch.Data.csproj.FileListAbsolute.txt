@@ -3,3 +3,8 @@ C:\Users\v-thzhu\documents\visual studio 2013\Projects\XSearch\XSearch.Data\bin\
 C:\Users\v-thzhu\documents\visual studio 2013\Projects\XSearch\XSearch.Data\bin\Debug\XSearch.Data.pdb
 C:\Users\v-thzhu\documents\visual studio 2013\Projects\XSearch\XSearch.Data\obj\Debug\XSearch.Data.dll
 C:\Users\v-thzhu\documents\visual studio 2013\Projects\XSearch\XSearch.Data\obj\Debug\XSearch.Data.pdb
+G:\GitHub\MyRepository\XSearch\XSearch.Data\bin\Debug\XSearch.Data.dll
+G:\GitHub\MyRepository\XSearch\XSearch.Data\bin\Debug\XSearch.Data.pdb
+G:\GitHub\MyRepository\XSearch\XSearch.Data\obj\Debug\XSearch.Data.csprojResolveAssemblyReference.cache
+G:\GitHub\MyRepository\XSearch\XSearch.Data\obj\Debug\XSearch.Data.dll
+G:\GitHub\MyRepository\XSearch\XSearch.Data\obj\Debug\XSearch.Data.pdb

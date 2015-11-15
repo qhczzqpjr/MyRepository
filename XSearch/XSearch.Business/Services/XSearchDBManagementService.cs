@@ -8,102 +8,103 @@ using XSearch.Business.Models;
 using XSearch.Common;
 using AutoMapper;
 using XSearch.DAL.Repository;
+using XSearch.Repository;
 
 namespace XSearch.Business.Services
 {
-    public class XSearchDBManagementService : IXSearchDBManagementService
+    public class XSearchDbManagementService : IXSearchDbManagementService
     {
-        private readonly IXSearchDBManagementRepository _xSearchDBManagementRepository;
+        private readonly IXSearchDbManagementRepository _ixSearchDbManagementRepository;
 
-        public XSearchDBManagementService()
+        public XSearchDbManagementService()
         {
-            _xSearchDBManagementRepository = ObjectFactory.GetInstance<IXSearchDBManagementRepository>();
+            _ixSearchDbManagementRepository = ObjectFactory.GetInstance<IXSearchDbManagementRepository>();
         }
 
         #region ObjMapping
         public IEnumerable<ObjMapping> GetObjMappings(ICriteria criteria)
         {
-            return _xSearchDBManagementRepository.GetObjMappings(criteria)
-                    .Select(Mapper.Map<Data.ObjMapping, ObjMapping>);
+            return _ixSearchDbManagementRepository.GetObjMappings(criteria)
+                    .Select(AutoMapper.Mapper.Map<Data.ObjMapping, ObjMapping>);
         }
 
         public IEnumerable<ObjMapping> GetAllObjMappings()
         {
-            return _xSearchDBManagementRepository.GetAllObjMappings()
-                     .Select(Mapper.Map<Data.ObjMapping, ObjMapping>);
+            return _ixSearchDbManagementRepository.GetAllObjMappings()
+                     .Select(AutoMapper.Mapper.Map<Data.ObjMapping, ObjMapping>);
         }
 
         public int GetTotalObjMappings()
         {
-            return _xSearchDBManagementRepository.GetTotalObjMappings();
+            return _ixSearchDbManagementRepository.GetTotalObjMappings();
         }
 
         public ObjMapping CreateObjMapping(ObjMapping objMapping)
         {
-            return Mapper.Map<Data.ObjMapping, ObjMapping>(_xSearchDBManagementRepository
-                .Insert(Mapper.Map<ObjMapping, Data.ObjMapping>(objMapping)));
+            return AutoMapper.Mapper.Map<Data.ObjMapping, ObjMapping>(_ixSearchDbManagementRepository
+                .Insert(AutoMapper.Mapper.Map<ObjMapping, Data.ObjMapping>(objMapping)));
         }
 
         public ObjMapping GetObjMapping(int id)
         {
-            return Mapper.Map<Data.ObjMapping, ObjMapping>(_xSearchDBManagementRepository.GetObjMapping(id));
+            return AutoMapper.Mapper.Map<Data.ObjMapping, ObjMapping>(_ixSearchDbManagementRepository.GetObjMapping(id));
         }
 
         public ObjMapping UpdateObjMapping(ObjMapping objMapping)
         {
-            return Mapper.Map<Data.ObjMapping, ObjMapping>(_xSearchDBManagementRepository
-                .Update(Mapper.Map<ObjMapping, Data.ObjMapping>(objMapping)));
+            return AutoMapper.Mapper.Map<Data.ObjMapping, ObjMapping>(_ixSearchDbManagementRepository
+                .Update(AutoMapper.Mapper.Map<ObjMapping, Data.ObjMapping>(objMapping)));
         }
 
         public ObjMapping DeleteObjMapping(ObjMapping objMapping)
         {
-            return Mapper.Map<Data.ObjMapping,ObjMapping>(_xSearchDBManagementRepository
-                .Delete(Mapper.Map<ObjMapping,Data.ObjMapping>(objMapping)));
+            return AutoMapper.Mapper.Map<Data.ObjMapping, ObjMapping>(_ixSearchDbManagementRepository
+                .Delete(AutoMapper.Mapper.Map<ObjMapping, Data.ObjMapping>(objMapping)));
         }
         #endregion
 
         #region Obj
         public IEnumerable<Obj> GetObjs(ICriteria criteria)
         {
-            return _xSearchDBManagementRepository.GetObjs(criteria)
-                .Select(Mapper.Map<Data.Obj, Obj>);
+            return _ixSearchDbManagementRepository.GetObjs(criteria)
+                .Select(AutoMapper.Mapper.Map<Data.Obj, Obj>);
         }
 
         public IEnumerable<Obj> GetAllObjs()
         {
-            return _xSearchDBManagementRepository.GetAllObjs()
-                     .Select(Mapper.Map<Data.Obj, Obj>);
+            return _ixSearchDbManagementRepository.GetAllObjs()
+                     .Select(AutoMapper.Mapper.Map<Data.Obj, Obj>);
         }
 
         public int GetTotalObjs()
         {
-            return _xSearchDBManagementRepository.GetTotalObjs();
+            return _ixSearchDbManagementRepository.GetTotalObjs();
         }
 
         public Obj CreateObj(Obj obj)
         {
-            return Mapper.Map<Data.Obj,Obj>(_xSearchDBManagementRepository.Insert(Mapper.Map<Obj, Data.Obj>(obj)));
+            return AutoMapper.Mapper.Map<Data.Obj, Obj>(_ixSearchDbManagementRepository.Insert(AutoMapper.Mapper.Map<Obj, Data.Obj>(obj)));
         }
 
         public Obj GetObj(int id)
         {
-            return Mapper.Map<Data.Obj,Obj>(_xSearchDBManagementRepository.GetObj(id));
+            return AutoMapper.Mapper.Map<Data.Obj, Obj>(_ixSearchDbManagementRepository.GetObj(id));
         }
 
         public Obj UpdateObj(Obj obj)
         {
-            return Mapper.Map<Data.Obj,Obj>(_xSearchDBManagementRepository.Update(Mapper.Map<Obj, Data.Obj>(obj)));
+            return AutoMapper.Mapper.Map<Data.Obj, Obj>(_ixSearchDbManagementRepository.Update(AutoMapper.Mapper.Map<Obj, Data.Obj>(obj)));
         }
 
         public Obj DeleteObj(Obj obj)
         {
-            return Mapper.Map<Data.Obj,Obj>(_xSearchDBManagementRepository.Delete(Mapper.Map<Obj, Data.Obj>(obj)));
+            return AutoMapper.Mapper.Map<Data.Obj, Obj>(_ixSearchDbManagementRepository.Delete(AutoMapper.Mapper.Map<Obj, Data.Obj>(obj)));
         }
         #endregion
 
         public void Dispose()
         {
-            _xSearchDBManagementRepository.Dispose();
+            _ixSearchDbManagementRepository.Dispose();
         }
     }
 }

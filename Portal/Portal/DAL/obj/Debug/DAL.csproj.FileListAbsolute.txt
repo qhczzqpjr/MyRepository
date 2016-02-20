@@ -1,0 +1,17 @@
+G:\GitHub\MyRepository\Portal\Portal\DAL\bin\Debug\DAL.dll.config
+G:\GitHub\MyRepository\Portal\Portal\DAL\bin\Debug\DAL.dll
+G:\GitHub\MyRepository\Portal\Portal\DAL\bin\Debug\DAL.pdb
+G:\GitHub\MyRepository\Portal\Portal\DAL\bin\Debug\Common.dll
+G:\GitHub\MyRepository\Portal\Portal\DAL\bin\Debug\Data.dll
+G:\GitHub\MyRepository\Portal\Portal\DAL\bin\Debug\EntityFramework.dll
+G:\GitHub\MyRepository\Portal\Portal\DAL\bin\Debug\EntityFramework.SqlServer.dll
+G:\GitHub\MyRepository\Portal\Portal\DAL\bin\Debug\EntityFramework.SqlServerCompact.dll
+G:\GitHub\MyRepository\Portal\Portal\DAL\bin\Debug\System.Data.SqlServerCe.dll
+G:\GitHub\MyRepository\Portal\Portal\DAL\bin\Debug\Common.pdb
+G:\GitHub\MyRepository\Portal\Portal\DAL\bin\Debug\Data.pdb
+G:\GitHub\MyRepository\Portal\Portal\DAL\bin\Debug\EntityFramework.xml
+G:\GitHub\MyRepository\Portal\Portal\DAL\bin\Debug\EntityFramework.SqlServer.xml
+G:\GitHub\MyRepository\Portal\Portal\DAL\bin\Debug\EntityFramework.SqlServerCompact.xml
+G:\GitHub\MyRepository\Portal\Portal\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+G:\GitHub\MyRepository\Portal\Portal\DAL\obj\Debug\DAL.dll
+G:\GitHub\MyRepository\Portal\Portal\DAL\obj\Debug\DAL.pdb

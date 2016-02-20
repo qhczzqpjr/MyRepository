@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DESPortalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Requirement">
+    <Key>
+      <PropertyRef Name="RequirementId" />
+    </Key>
+    <Property Name="RequirementId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RequirementCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="RequirementDescription" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="RequirementContent" Type="text" />
+  </EntityType>
+  <Function Name="usp_GetCloseTaskPercentage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_GetTaskInitialData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_InsertTask" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TaskName" Type="nvarchar" Mode="In" />
+    <Parameter Name="TaskStatusName" Type="nvarchar" Mode="In" />
+    <Parameter Name="SourceTaskId" Type="int" Mode="In" />
+    <Parameter Name="TeamMemberName" Type="nvarchar" Mode="In" />
+    <Parameter Name="SprintID" Type="nvarchar" Mode="In" />
+    <Parameter Name="Commonts" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="OwnerName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_InsertTaskLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TaskId" Type="int" Mode="In" />
+    <Parameter Name="TaskStatusId" Type="int" Mode="In" />
+    <Parameter Name="TeamMemberId" Type="int" Mode="In" />
+    <Parameter Name="Comments" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="usp_SavePerformanceAudit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TeammemberName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_UpdateTask" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TaskId" Type="int" Mode="In" />
+    <Parameter Name="TaskName" Type="nvarchar" Mode="In" />
+    <Parameter Name="SourceTaskId" Type="int" Mode="In" />
+    <Parameter Name="TaskStatusId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_UpdateTaskStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TaskId" Type="int" Mode="In" />
+    <Parameter Name="TaskStatusName" Type="nvarchar" Mode="In" />
+    <Parameter Name="TeamMemberName" Type="nvarchar" Mode="In" />
+    <Parameter Name="SprintID" Type="nvarchar" Mode="In" />
+    <Parameter Name="Commonts" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="SoureceTaskID" Type="int" Mode="In" />
+    <Parameter Name="OwnerName" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="DESPortalModelStoreContainer">
+    <EntitySet Name="Requirement" EntityType="Self.Requirement" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

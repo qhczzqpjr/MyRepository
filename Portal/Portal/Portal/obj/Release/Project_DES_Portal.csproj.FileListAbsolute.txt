@@ -1,0 +1,16 @@
+D:\WorkPart\Detego_AskME\Archive\DEV\DesTool\DESPortal-branch-King\Project_DES_Portal\bin\Release\Project_DES_Portal.exe.config
+D:\WorkPart\Detego_AskME\Archive\DEV\DesTool\DESPortal-branch-King\Project_DES_Portal\bin\Release\Project_DES_Portal.exe.manifest
+D:\WorkPart\Detego_AskME\Archive\DEV\DesTool\DESPortal-branch-King\Project_DES_Portal\bin\Release\Project_DES_Portal.application
+D:\WorkPart\Detego_AskME\Archive\DEV\DesTool\DESPortal-branch-King\Project_DES_Portal\bin\Release\Project_DES_Portal.exe
+D:\WorkPart\Detego_AskME\Archive\DEV\DesTool\DESPortal-branch-King\Project_DES_Portal\bin\Release\Project_DES_Portal.pdb
+D:\WorkPart\Detego_AskME\Archive\DEV\DesTool\DESPortal-branch-King\Project_DES_Portal\obj\Release\Project_DES_Portal.frmDesTaskInfor.resources
+D:\WorkPart\Detego_AskME\Archive\DEV\DesTool\DESPortal-branch-King\Project_DES_Portal\obj\Release\Project_DES_Portal.frmMain.resources
+D:\WorkPart\Detego_AskME\Archive\DEV\DesTool\DESPortal-branch-King\Project_DES_Portal\obj\Release\Project_DES_Portal.frmRequirement.resources
+D:\WorkPart\Detego_AskME\Archive\DEV\DesTool\DESPortal-branch-King\Project_DES_Portal\obj\Release\Project_DES_Portal.frmTaskDetailInformation.resources
+D:\WorkPart\Detego_AskME\Archive\DEV\DesTool\DESPortal-branch-King\Project_DES_Portal\obj\Release\Project_DES_Portal.Properties.Resources.resources
+D:\WorkPart\Detego_AskME\Archive\DEV\DesTool\DESPortal-branch-King\Project_DES_Portal\obj\Release\Project_DES_Portal.csproj.GenerateResource.Cache
+D:\WorkPart\Detego_AskME\Archive\DEV\DesTool\DESPortal-branch-King\Project_DES_Portal\obj\Release\Project_DES_Portal.exe.manifest
+D:\WorkPart\Detego_AskME\Archive\DEV\DesTool\DESPortal-branch-King\Project_DES_Portal\obj\Release\Project_DES_Portal.application
+D:\WorkPart\Detego_AskME\Archive\DEV\DesTool\DESPortal-branch-King\Project_DES_Portal\obj\Release\Project_DES_Portal.exe
+D:\WorkPart\Detego_AskME\Archive\DEV\DesTool\DESPortal-branch-King\Project_DES_Portal\obj\Release\Project_DES_Portal.pdb
+D:\WorkPart\Detego_AskME\Archive\DEV\DesTool\DESPortal-branch-King\Project_DES_Portal\obj\Release\Project_DES_Portal.csprojResolveAssemblyReference.cache

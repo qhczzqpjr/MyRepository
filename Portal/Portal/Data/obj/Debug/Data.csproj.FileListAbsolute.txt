@@ -1,0 +1,4 @@
+G:\GitHub\MyRepository\Portal\Portal\Data\bin\Debug\Data.dll
+G:\GitHub\MyRepository\Portal\Portal\Data\bin\Debug\Data.pdb
+G:\GitHub\MyRepository\Portal\Portal\Data\obj\Debug\Data.dll
+G:\GitHub\MyRepository\Portal\Portal\Data\obj\Debug\Data.pdb

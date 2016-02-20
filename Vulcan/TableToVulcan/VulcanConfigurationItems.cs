@@ -23,11 +23,7 @@ namespace TableToVulcan
         }
         public bool IsItemConfigured()
         {
-            if (!string.IsNullOrEmpty(this.Schema) && !string.IsNullOrEmpty(this.Table) && !string.IsNullOrEmpty(this.ConnectionName) && !string.IsNullOrEmpty(this.FileName))
-            {
-                return true;
-            }
-            return false;
+            return !string.IsNullOrEmpty(this.Schema) && !string.IsNullOrEmpty(this.Table) && !string.IsNullOrEmpty(this.ConnectionName) && !string.IsNullOrEmpty(this.FileName);
         }
     }
 }

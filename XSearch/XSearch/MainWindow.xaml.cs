@@ -1,7 +1,5 @@
-﻿using System.Linq;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using XSearch.Business.Mapper;
-using XSearch.Business.Services;
 using XSearch.Views;
 using XSearch.ViewsModels;
 

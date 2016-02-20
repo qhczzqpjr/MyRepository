@@ -23,3 +23,6 @@ C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Vulcan\TableToVulcan\bin\
 \\gcrcssfs\Public\BPO\BIAR\Readiness\IEBBIDev\th\Vulcan\TableToVulcan\obj\Debug\TableToVulcan.exe
 \\gcrcssfs\Public\BPO\BIAR\Readiness\IEBBIDev\th\Vulcan\TableToVulcan\obj\Debug\TableToVulcan.pdb
 C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Vulcan\TableToVulcan\obj\Debug\TableToVulcan.csprojResolveAssemblyReference.cache
+G:\GitHub\MyRepository\Vulcan\TableToVulcan\bin\Debug\TableToVulcan.exe.config
+G:\GitHub\MyRepository\Vulcan\TableToVulcan\obj\Debug\TableToVulcan.exe
+G:\GitHub\MyRepository\Vulcan\TableToVulcan\obj\Debug\TableToVulcan.pdb

@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DESPortalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AuditField">
+    <Key>
+      <PropertyRef Name="AuditFieldId" />
+    </Key>
+    <Property Name="AuditFieldId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AuditField1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AuditFieldDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedById" Type="Int32" />
+    <Property Name="UpdatedById" Type="Int32" />
+    <Property Name="InsertedDateTime" Type="DateTime" Precision="7" />
+    <Property Name="UpdatedDateTime" Type="DateTime" Precision="7" />
+    <NavigationProperty Name="AuditFieldValues" Relationship="Self.FK_AuditFieldValue_AuditFieldId" FromRole="AuditField" ToRole="AuditFieldValue" />
+    <NavigationProperty Name="PerformanceAudits" Relationship="Self.FK_PerformanceAudit_AuditFieldId" FromRole="AuditField" ToRole="PerformanceAudit" />
+  </EntityType>
+  <EntityType Name="AuditFieldValue">
+    <Key>
+      <PropertyRef Name="AuditFieldValueId" />
+    </Key>
+    <Property Name="AuditFieldValueId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AuditFieldId" Type="Int32" />
+    <Property Name="AuditFieldValue1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AuditFieldValueDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedById" Type="Int32" />
+    <Property Name="UpdatedById" Type="Int32" />
+    <Property Name="InsertedDateTime" Type="DateTime" Precision="7" />
+    <Property Name="UpdatedDateTime" Type="DateTime" Precision="7" />
+    <NavigationProperty Name="AuditField" Relationship="Self.FK_AuditFieldValue_AuditFieldId" FromRole="AuditFieldValue" ToRole="AuditField" />
+    <NavigationProperty Name="PerformanceAudits" Relationship="Self.FK_PerformanceAudit_AuditFieldValueId" FromRole="AuditFieldValue" ToRole="PerformanceAudit" />
+  </EntityType>
+  <EntityType Name="PerformanceAudit">
+    <Key>
+      <PropertyRef Name="PerformanceAuditId" />
+    </Key>
+    <Property Name="PerformanceAuditId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeamMemberId" Type="Int32" />
+    <Property Name="AuditMonth" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AuditFieldId" Type="Int32" />
+    <Property Name="AuditFieldValueId" Type="Int32" />
+    <Property Name="InsertedById" Type="Int32" />
+    <Property Name="UpdatedById" Type="Int32" />
+    <Property Name="InsertedDateTime" Type="DateTime" Precision="7" />
+    <Property Name="UpdatedDateTime" Type="DateTime" Precision="7" />
+    <NavigationProperty Name="AuditField" Relationship="Self.FK_PerformanceAudit_AuditFieldId" FromRole="PerformanceAudit" ToRole="AuditField" />
+    <NavigationProperty Name="AuditFieldValue" Relationship="Self.FK_PerformanceAudit_AuditFieldValueId" FromRole="PerformanceAudit" ToRole="AuditFieldValue" />
+    <NavigationProperty Name="TeamMember" Relationship="Self.FK_PerformanceAudit_TeamMemberId" FromRole="PerformanceAudit" ToRole="TeamMember" />
+  </EntityType>
+  <EntityType Name="Requirement">
+    <Key>
+      <PropertyRef Name="RequirementId" />
+    </Key>
+    <Property Name="RequirementId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RequirementCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RequirementDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RequirementContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="TaskId" />
+    </Key>
+    <Property Name="TaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TaskStatusId" Type="Int32" Nullable="false" />
+    <Property Name="SourceTaskId" Type="Int32" />
+    <Property Name="Sprint" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StartDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EndDateTime" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="TaskStatu" Relationship="Self.FK_Task_TaskStatus" FromRole="Task" ToRole="TaskStatus" />
+    <NavigationProperty Name="TaskActivityLogs" Relationship="Self.FK_TaskActivityLog_Task" FromRole="Task" ToRole="TaskActivityLog" />
+  </EntityType>
+  <EntityType Name="TaskActivityLog">
+    <Key>
+      <PropertyRef Name="TaskActivityLogId" />
+    </Key>
+    <Property Name="TaskActivityLogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskId" Type="Int32" Nullable="false" />
+    <Property Name="TeamMemberId" Type="Int32" Nullable="false" />
+    <Property Name="OwnerID" Type="Int32" />
+    <Property Name="TaskStatusId" Type="Int32" Nullable="false" />
+    <Property Name="ActivityDateTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Task" Relationship="Self.FK_TaskActivityLog_Task" FromRole="TaskActivityLog" ToRole="Task" />
+    <NavigationProperty Name="TaskStatu" Relationship="Self.FK_TaskActivityLog_TaskStatus" FromRole="TaskActivityLog" ToRole="TaskStatus" />
+    <NavigationProperty Name="TeamMember" Relationship="Self.FK_TaskActivityLog_TeamMember" FromRole="TaskActivityLog" ToRole="TeamMember" />
+  </EntityType>
+  <EntityType Name="TaskStatu">
+    <Key>
+      <PropertyRef Name="TaskStatusId" />
+    </Key>
+    <Property Name="TaskStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskStatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TaskStatusLevel" Type="Int32" />
+    <NavigationProperty Name="Tasks" Relationship="Self.FK_Task_TaskStatus" FromRole="TaskStatus" ToRole="Task" />
+    <NavigationProperty Name="TaskActivityLogs" Relationship="Self.FK_TaskActivityLog_TaskStatus" FromRole="TaskStatus" ToRole="TaskActivityLog" />
+  </EntityType>
+  <EntityType Name="TeamMember">
+    <Key>
+      <PropertyRef Name="TeamMemberId" />
+    </Key>
+    <Property Name="TeamMemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeamMemberAlias" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EnglishName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ChineseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MSAlias" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CheckinDate" Type="DateTime" Precision="0" />
+    <Property Name="CheckOutDate" Type="DateTime" Precision="0" />
+    <Property Name="Birthday" Type="DateTime" Precision="0" />
+    <Property Name="Gender" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="StreetAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Zip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PerformanceAudits" Relationship="Self.FK_PerformanceAudit_TeamMemberId" FromRole="TeamMember" ToRole="PerformanceAudit" />
+    <NavigationProperty Name="TaskActivityLogs" Relationship="Self.FK_TaskActivityLog_TeamMember" FromRole="TeamMember" ToRole="TaskActivityLog" />
+    <Property Name="Active" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_AuditFieldValue_AuditFieldId">
+    <End Role="AuditField" Type="Self.AuditField" Multiplicity="0..1" />
+    <End Role="AuditFieldValue" Type="Self.AuditFieldValue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AuditField">
+        <PropertyRef Name="AuditFieldId" />
+      </Principal>
+      <Dependent Role="AuditFieldValue">
+        <PropertyRef Name="AuditFieldId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerformanceAudit_AuditFieldId">
+    <End Role="AuditField" Type="Self.AuditField" Multiplicity="0..1" />
+    <End Role="PerformanceAudit" Type="Self.PerformanceAudit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AuditField">
+        <PropertyRef Name="AuditFieldId" />
+      </Principal>
+      <Dependent Role="PerformanceAudit">
+        <PropertyRef Name="AuditFieldId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerformanceAudit_AuditFieldValueId">
+    <End Role="AuditFieldValue" Type="Self.AuditFieldValue" Multiplicity="0..1" />
+    <End Role="PerformanceAudit" Type="Self.PerformanceAudit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AuditFieldValue">
+        <PropertyRef Name="AuditFieldValueId" />
+      </Principal>
+      <Dependent Role="PerformanceAudit">
+        <PropertyRef Name="AuditFieldValueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerformanceAudit_TeamMemberId">
+    <End Role="TeamMember" Type="Self.TeamMember" Multiplicity="0..1" />
+    <End Role="PerformanceAudit" Type="Self.PerformanceAudit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TeamMember">
+        <PropertyRef Name="TeamMemberId" />
+      </Principal>
+      <Dependent Role="PerformanceAudit">
+        <PropertyRef Name="TeamMemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Task_TaskStatus">
+    <End Role="TaskStatus" Type="Self.TaskStatu" Multiplicity="1" />
+    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskStatus">
+        <PropertyRef Name="TaskStatusId" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="TaskStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskActivityLog_Task">
+    <End Role="Task" Type="Self.Task" Multiplicity="1" />
+    <End Role="TaskActivityLog" Type="Self.TaskActivityLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="TaskId" />
+      </Principal>
+      <Dependent Role="TaskActivityLog">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskActivityLog_TaskStatus">
+    <End Role="TaskStatus" Type="Self.TaskStatu" Multiplicity="1" />
+    <End Role="TaskActivityLog" Type="Self.TaskActivityLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskStatus">
+        <PropertyRef Name="TaskStatusId" />
+      </Principal>
+      <Dependent Role="TaskActivityLog">
+        <PropertyRef Name="TaskStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskActivityLog_TeamMember">
+    <End Role="TeamMember" Type="Self.TeamMember" Multiplicity="1" />
+    <End Role="TaskActivityLog" Type="Self.TaskActivityLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TeamMember">
+        <PropertyRef Name="TeamMemberId" />
+      </Principal>
+      <Dependent Role="TaskActivityLog">
+        <PropertyRef Name="TeamMemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DESProtalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AuditFields" EntityType="Self.AuditField" />
+    <EntitySet Name="AuditFieldValues" EntityType="Self.AuditFieldValue" />
+    <EntitySet Name="PerformanceAudits" EntityType="Self.PerformanceAudit" />
+    <EntitySet Name="Requirements" EntityType="Self.Requirement" />
+    <EntitySet Name="Tasks" EntityType="Self.Task" />
+    <EntitySet Name="TaskActivityLogs" EntityType="Self.TaskActivityLog" />
+    <EntitySet Name="TaskStatus" EntityType="Self.TaskStatu" />
+    <EntitySet Name="TeamMembers" EntityType="Self.TeamMember" />
+    <AssociationSet Name="FK_AuditFieldValue_AuditFieldId" Association="Self.FK_AuditFieldValue_AuditFieldId">
+      <End Role="AuditField" EntitySet="AuditFields" />
+      <End Role="AuditFieldValue" EntitySet="AuditFieldValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerformanceAudit_AuditFieldId" Association="Self.FK_PerformanceAudit_AuditFieldId">
+      <End Role="AuditField" EntitySet="AuditFields" />
+      <End Role="PerformanceAudit" EntitySet="PerformanceAudits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerformanceAudit_AuditFieldValueId" Association="Self.FK_PerformanceAudit_AuditFieldValueId">
+      <End Role="AuditFieldValue" EntitySet="AuditFieldValues" />
+      <End Role="PerformanceAudit" EntitySet="PerformanceAudits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerformanceAudit_TeamMemberId" Association="Self.FK_PerformanceAudit_TeamMemberId">
+      <End Role="TeamMember" EntitySet="TeamMembers" />
+      <End Role="PerformanceAudit" EntitySet="PerformanceAudits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Task_TaskStatus" Association="Self.FK_Task_TaskStatus">
+      <End Role="TaskStatus" EntitySet="TaskStatus" />
+      <End Role="Task" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskActivityLog_Task" Association="Self.FK_TaskActivityLog_Task">
+      <End Role="Task" EntitySet="Tasks" />
+      <End Role="TaskActivityLog" EntitySet="TaskActivityLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskActivityLog_TaskStatus" Association="Self.FK_TaskActivityLog_TaskStatus">
+      <End Role="TaskStatus" EntitySet="TaskStatus" />
+      <End Role="TaskActivityLog" EntitySet="TaskActivityLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskActivityLog_TeamMember" Association="Self.FK_TaskActivityLog_TeamMember">
+      <End Role="TeamMember" EntitySet="TeamMembers" />
+      <End Role="TaskActivityLog" EntitySet="TaskActivityLogs" />
+    </AssociationSet>
+    <FunctionImport Name="usp_GetCloseTaskPercentage" ReturnType="Collection(Double)" />
+    <FunctionImport Name="usp_InsertTask">
+      <Parameter Name="TaskName" Mode="In" Type="String" />
+      <Parameter Name="TaskStatusName" Mode="In" Type="String" />
+      <Parameter Name="SourceTaskId" Mode="In" Type="Int32" />
+      <Parameter Name="TeamMemberName" Mode="In" Type="String" />
+      <Parameter Name="SprintID" Mode="In" Type="String" />
+      <Parameter Name="Commonts" Mode="In" Type="String" />
+      <Parameter Name="OwnerName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_InsertTaskLog">
+      <Parameter Name="TaskId" Mode="In" Type="Int32" />
+      <Parameter Name="TaskStatusId" Mode="In" Type="Int32" />
+      <Parameter Name="TeamMemberId" Mode="In" Type="Int32" />
+      <Parameter Name="Comments" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_SavePerformanceAudit">
+      <Parameter Name="TeammemberName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_UpdateTask">
+      <Parameter Name="TaskId" Mode="In" Type="Int32" />
+      <Parameter Name="TaskName" Mode="In" Type="String" />
+      <Parameter Name="SourceTaskId" Mode="In" Type="Int32" />
+      <Parameter Name="TaskStatusId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_UpdateTaskStatus">
+      <Parameter Name="TaskId" Mode="In" Type="Int32" />
+      <Parameter Name="TaskStatusName" Mode="In" Type="String" />
+      <Parameter Name="TeamMemberName" Mode="In" Type="String" />
+      <Parameter Name="SprintID" Mode="In" Type="String" />
+      <Parameter Name="Commonts" Mode="In" Type="String" />
+      <Parameter Name="SoureceTaskID" Mode="In" Type="Int32" />
+      <Parameter Name="OwnerName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetTaskInitialData" ReturnType="Collection(DESPortalModel.usp_GetTaskInitialData_Result)" />
+  </EntityContainer>
+  <ComplexType Name="usp_GetTaskInitialData_Result">
+    <Property Type="Int32" Name="TaskId" Nullable="false" />
+    <Property Type="String" Name="TaskName" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="TaskStatus" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="SourceTaskId" Nullable="true" />
+    <Property Type="String" Name="Sprint" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Comments" Nullable="true" />
+    <Property Type="String" Name="EnglishName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="StartDateTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="EndDateTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="LastUpdatedDateTime" Nullable="true" Precision="23" />
+  </ComplexType>
+</Schema>

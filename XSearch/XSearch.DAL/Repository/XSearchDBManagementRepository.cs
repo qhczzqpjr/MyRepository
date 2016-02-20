@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using XSearch.DAL.Repository.Core;
-using XSearch.Data;
 using XSearch.Common;
-using XSearch.Repository;
+using XSearch.Data;
+using XSearch.Repository.Core;
 
-namespace XSearch.DAL.Repository
+namespace XSearch.Repository
 {
     public class XSearchDbManagementRepository : Repo<XSearchDbContext>, IXSearchDbManagementRepository
     {

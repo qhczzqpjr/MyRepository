@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using XSearch.DAL;
-using XSearch.DAL.Repository.Core;
-using XSearch.Repository.Core;
+﻿using System.Data.Entity;
 
-namespace XSearch.DAL.Repository.Core
+namespace XSearch.Repository.Core
 {
     public abstract class Repo<TXSearchContext> : IRepo
         where TXSearchContext : XSearchDbContext, new()

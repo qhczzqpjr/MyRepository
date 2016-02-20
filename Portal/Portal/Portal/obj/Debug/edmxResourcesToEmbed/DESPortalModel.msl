@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DESPortalModelStoreContainer" CdmEntityContainer="DESProtalEntities">
+    <EntitySetMapping Name="AuditFields">
+      <EntityTypeMapping TypeName="DESPortalModel.AuditField">
+        <MappingFragment StoreEntitySet="AuditField">
+          <ScalarProperty Name="AuditFieldId" ColumnName="AuditFieldId" />
+          <ScalarProperty Name="AuditField1" ColumnName="AuditField" />
+          <ScalarProperty Name="AuditFieldDesc" ColumnName="AuditFieldDesc" />
+          <ScalarProperty Name="InsertedById" ColumnName="InsertedById" />
+          <ScalarProperty Name="UpdatedById" ColumnName="UpdatedById" />
+          <ScalarProperty Name="InsertedDateTime" ColumnName="InsertedDateTime" />
+          <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuditFieldValues">
+      <EntityTypeMapping TypeName="DESPortalModel.AuditFieldValue">
+        <MappingFragment StoreEntitySet="AuditFieldValue">
+          <ScalarProperty Name="AuditFieldValueId" ColumnName="AuditFieldValueId" />
+          <ScalarProperty Name="AuditFieldId" ColumnName="AuditFieldId" />
+          <ScalarProperty Name="AuditFieldValue1" ColumnName="AuditFieldValue" />
+          <ScalarProperty Name="AuditFieldValueDesc" ColumnName="AuditFieldValueDesc" />
+          <ScalarProperty Name="InsertedById" ColumnName="InsertedById" />
+          <ScalarProperty Name="UpdatedById" ColumnName="UpdatedById" />
+          <ScalarProperty Name="InsertedDateTime" ColumnName="InsertedDateTime" />
+          <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PerformanceAudits">
+      <EntityTypeMapping TypeName="DESPortalModel.PerformanceAudit">
+        <MappingFragment StoreEntitySet="PerformanceAudit">
+          <ScalarProperty Name="PerformanceAuditId" ColumnName="PerformanceAuditId" />
+          <ScalarProperty Name="TeamMemberId" ColumnName="TeamMemberId" />
+          <ScalarProperty Name="AuditMonth" ColumnName="AuditMonth" />
+          <ScalarProperty Name="AuditFieldId" ColumnName="AuditFieldId" />
+          <ScalarProperty Name="AuditFieldValueId" ColumnName="AuditFieldValueId" />
+          <ScalarProperty Name="InsertedById" ColumnName="InsertedById" />
+          <ScalarProperty Name="UpdatedById" ColumnName="UpdatedById" />
+          <ScalarProperty Name="InsertedDateTime" ColumnName="InsertedDateTime" />
+          <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requirements">
+      <EntityTypeMapping TypeName="DESPortalModel.Requirement">
+        <MappingFragment StoreEntitySet="Requirement">
+          <ScalarProperty Name="RequirementId" ColumnName="RequirementId" />
+          <ScalarProperty Name="RequirementCode" ColumnName="RequirementCode" />
+          <ScalarProperty Name="RequirementDescription" ColumnName="RequirementDescription" />
+          <ScalarProperty Name="RequirementContent" ColumnName="RequirementContent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tasks">
+      <EntityTypeMapping TypeName="DESPortalModel.Task">
+        <MappingFragment StoreEntitySet="Task">
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+          <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+          <ScalarProperty Name="TaskStatusId" ColumnName="TaskStatusId" />
+          <ScalarProperty Name="SourceTaskId" ColumnName="SourceTaskId" />
+          <ScalarProperty Name="Sprint" ColumnName="Sprint" />
+          <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+          <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+          <ScalarProperty Name="LastUpdatedDateTime" ColumnName="LastUpdatedDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskActivityLogs">
+      <EntityTypeMapping TypeName="DESPortalModel.TaskActivityLog">
+        <MappingFragment StoreEntitySet="TaskActivityLog">
+          <ScalarProperty Name="TaskActivityLogId" ColumnName="TaskActivityLogId" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+          <ScalarProperty Name="TeamMemberId" ColumnName="TeamMemberId" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+          <ScalarProperty Name="TaskStatusId" ColumnName="TaskStatusId" />
+          <ScalarProperty Name="ActivityDateTime" ColumnName="ActivityDateTime" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskStatus">
+      <EntityTypeMapping TypeName="DESPortalModel.TaskStatu">
+        <MappingFragment StoreEntitySet="TaskStatus">
+          <ScalarProperty Name="TaskStatusId" ColumnName="TaskStatusId" />
+          <ScalarProperty Name="TaskStatusName" ColumnName="TaskStatusName" />
+          <ScalarProperty Name="TaskStatusLevel" ColumnName="TaskStatusLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeamMembers">
+      <EntityTypeMapping TypeName="DESPortalModel.TeamMember">
+        <MappingFragment StoreEntitySet="TeamMember">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="TeamMemberId" ColumnName="TeamMemberId" />
+          <ScalarProperty Name="TeamMemberAlias" ColumnName="TeamMemberAlias" />
+          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+          <ScalarProperty Name="ChineseName" ColumnName="ChineseName" />
+          <ScalarProperty Name="MSAlias" ColumnName="MSAlias" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="CheckinDate" ColumnName="CheckinDate" />
+          <ScalarProperty Name="CheckOutDate" ColumnName="CheckOutDate" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetCloseTaskPercentage" FunctionName="DESPortalModel.Store.usp_GetCloseTaskPercentage" />
+    <FunctionImportMapping FunctionImportName="usp_InsertTask" FunctionName="DESPortalModel.Store.usp_InsertTask" />
+    <FunctionImportMapping FunctionImportName="usp_InsertTaskLog" FunctionName="DESPortalModel.Store.usp_InsertTaskLog" />
+    <FunctionImportMapping FunctionImportName="usp_SavePerformanceAudit" FunctionName="DESPortalModel.Store.usp_SavePerformanceAudit" />
+    <FunctionImportMapping FunctionImportName="usp_UpdateTask" FunctionName="DESPortalModel.Store.usp_UpdateTask" />
+    <FunctionImportMapping FunctionImportName="usp_UpdateTaskStatus" FunctionName="DESPortalModel.Store.usp_UpdateTaskStatus" />
+    <FunctionImportMapping FunctionImportName="usp_GetTaskInitialData" FunctionName="DESPortalModel.Store.usp_GetTaskInitialData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DESPortalModel.usp_GetTaskInitialData_Result">
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+          <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+          <ScalarProperty Name="TaskStatus" ColumnName="TaskStatus" />
+          <ScalarProperty Name="SourceTaskId" ColumnName="SourceTaskId" />
+          <ScalarProperty Name="Sprint" ColumnName="Sprint" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+          <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+          <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+          <ScalarProperty Name="LastUpdatedDateTime" ColumnName="LastUpdatedDateTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

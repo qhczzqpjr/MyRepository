@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using StructureMap;
 using XSearch.Business.Models;
 using XSearch.Common;
-using AutoMapper;
-using XSearch.DAL.Repository;
 using XSearch.Repository;
 
 namespace XSearch.Business.Services
@@ -18,7 +13,7 @@ namespace XSearch.Business.Services
 
         public XSearchDbManagementService()
         {
-            _ixSearchDbManagementRepository = ObjectFactory.GetInstance<IXSearchDbManagementRepository>();
+            _ixSearchDbManagementRepository = ObjectFactory.GetInstance<XSearchDbManagementRepository>();
         }
 
         #region ObjMapping

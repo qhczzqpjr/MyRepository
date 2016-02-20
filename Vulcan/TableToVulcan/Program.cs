@@ -20,7 +20,8 @@ namespace TableToVulcan
 
             string workspace = ConfigurationManager.AppSettings["Workspace"];
             Console.WriteLine("-------------------- Welcome to TableToVulcan ------------------");
-            Dictionary<string, string> list = (ConfigurationManager.GetSection("WorkspaceSetting") as System.Collections.Hashtable)
+            // ReSharper disable once AssignNullToNotNullAttribute
+            var list = (ConfigurationManager.GetSection("WorkspaceSetting") as System.Collections.Hashtable)
                .Cast<System.Collections.DictionaryEntry>()
                .ToDictionary(n => n.Key.ToString(), n => n.Value.ToString());
 
@@ -41,62 +42,66 @@ namespace TableToVulcan
 
             Console.WriteLine("-----------------------   Processing Start --------------------- \n");
 
-            var VulcanObject = (ConfigurationManager.GetSection("VulcanObjectsSettings") as VulcanObjectsSettings).CustomConfiguration.Cast<VulcanObject>().ToList<VulcanObject>();
-
-
-            foreach (VulcanObject item in VulcanObject)
+            var vulcanObjectsSettings = ConfigurationManager.GetSection("VulcanObjectsSettings") as VulcanObjectsSettings;
+            if (vulcanObjectsSettings != null)
             {
-                VulcanConfigurationItems ConfigItem = new VulcanConfigurationItems(item);
-                try
-                {
-                    Console.WriteLine("Start to Process Object: {0} ", item.Name);
-                    Regex rgx = new Regex(@"([\w\s]*?).([\w\s]*?).([\w\s]*?)");
-                    if (rgx.IsMatch(item.Key))
-                    {
-                        string[] splits = item.Key.Split(new string[] { "." }, StringSplitOptions.RemoveEmptyEntries);
-                        ConfigItem.ConnectionName = splits[0];
-                        ConfigItem.Table = splits[2];
+                var vulcanObject = vulcanObjectsSettings.CustomConfiguration.Cast<VulcanObject>().ToList<VulcanObject>();
 
-                        switch (splits[1].ToUpper())
-                        {
-                            case "DIM":
-                                ConfigItem.FileName = workspace + @"\Dimensions\Dim" + ConfigItem.Table + ".xml";
-                                ConfigItem.Schema = "Dimension";
-                                break;
-                            case "FACT":
-                                ConfigItem.FileName = workspace + @"\FactTables\Fact" + ConfigItem.Table + ".xml";
-                                ConfigItem.Schema = "Fact";
-                                break;
-                            default:
-                                ConfigItem.FileName = workspace + @"\Tables\Staging" + ConfigItem.Table + ".xml";
-                                ConfigItem.Schema = "Table";
-                                break;
-                        }
-                        WriteXML(GetData(ConfigItem.Schema, ConfigItem.Schema, ConfigItem.Table, ConfigItem.ConnectionName), ConfigItem.FileName);
-                    }
-                    else
+
+                foreach (var item in vulcanObject)
+                {
+                    var configItem = new VulcanConfigurationItems(item);
+                    try
                     {
-                        if (ConfigItem.IsItemConfigured())
+                        Console.WriteLine("Start to Process Object: {0} ", item.Name);
+                        var rgx = new Regex(@"([\w\s]*?).([\w\s]*?).([\w\s]*?)");
+                        if (rgx.IsMatch(item.Key))
                         {
-                            WriteXML(GetData(ConfigItem.Schema, ConfigItem.Schema, ConfigItem.Table, ConfigItem.ConnectionName), ConfigItem.FileName);
+                            string[] splits = item.Key.Split(new string[] { "." }, StringSplitOptions.RemoveEmptyEntries);
+                            configItem.ConnectionName = splits[0];
+                            configItem.Table = splits[2];
+
+                            switch (splits[1].ToUpper())
+                            {
+                                case "DIM":
+                                    configItem.FileName = workspace + @"\Dimensions\Dim" + configItem.Table + ".xml";
+                                    configItem.Schema = "Dimension";
+                                    break;
+                                case "FACT":
+                                    configItem.FileName = workspace + @"\FactTables\Fact" + configItem.Table + ".xml";
+                                    configItem.Schema = "Fact";
+                                    break;
+                                default:
+                                    configItem.FileName = workspace + @"\Tables\Staging" + configItem.Table + ".xml";
+                                    configItem.Schema = "Table";
+                                    break;
+                            }
+                            WriteXml(GetData(configItem.Schema, configItem.Schema, configItem.Table, configItem.ConnectionName), configItem.FileName);
                         }
                         else
                         {
-                            Exception e = new Exception("Please provide enough config information!");
-                            throw e;
+                            if (configItem.IsItemConfigured())
+                            {
+                                WriteXml(GetData(configItem.Schema, configItem.Schema, configItem.Table, configItem.ConnectionName), configItem.FileName);
+                            }
+                            else
+                            {
+                                var e = new Exception("Please provide enough config information!");
+                                throw e;
+                            }
+
                         }
 
+
+                        Console.WriteLine("Successfully Processed Object: {0}", configItem.Table);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Failed to Process Object: {0} \n Details: {0}", ex.Message);
+                        Console.WriteLine("End to Process Object: {0} \n", configItem.Table);
                     }
 
-
-                    Console.WriteLine("Successfully Processed Object: {0}", ConfigItem.Table);
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Failed to Process Object: {0} \n Details: {0}", ex.Message);
-                    Console.WriteLine("End to Process Object: {0} \n", ConfigItem.Table);
-                }
-
             }
             Console.WriteLine("-----------------------   Processing End --------------------- \n");
             Console.WriteLine("Enter any key to close the window");
@@ -104,72 +109,75 @@ namespace TableToVulcan
 
         }
 
-        private static string GetData(string Type, string SchemaName, string Name, string ConnectionName)
+        private static string GetData(string type, string schemaName, string name, string connectionName)
         {
-            string result = "";
-            string connstr = ConfigurationManager.ConnectionStrings[ConnectionName].ToString();
-            string columns = "<Columns> \n" + TableToString(GetQueryFromFile(GetColumnsQueryPath).Replace("@Schema", SchemaName).Replace("@Table", Name), connstr) + "</Columns>";
-            string PrimaryKey, UniqueKey, Index, CustomExension;
+            var result = "";
+            var connstr = ConfigurationManager.ConnectionStrings[connectionName].ToString();
+            var columns = "<Columns> \n" + TableToString(GetQueryFromFile(GetColumnsQueryPath).Replace("@Schema", schemaName).Replace("@Table", name), connstr) + "</Columns>";
+            string primaryKey;
+            string uniqueKey;
+            string index;
+            string customExension;
 
             try
             {
-                PrimaryKey = TableToString(GetQueryFromFile(GetPrimaryKeysQueryPath).Replace("@Schema", SchemaName).Replace("@Table", Name), connstr);
+                primaryKey = TableToString(GetQueryFromFile(GetPrimaryKeysQueryPath).Replace("@Schema", schemaName).Replace("@Table", name), connstr);
             }
             catch (Exception e)
             {
                 Console.WriteLine("Failed when excute query in {0}. \n Details:{1}", GetPrimaryKeysQueryPath, e.Message);
-                throw e;
+                throw;
             }
             try
             {
-                UniqueKey = TableToString(GetQueryFromFile(GetUniqueKeysQueryPath).Replace("@Schema", SchemaName).Replace("@Table", Name), connstr);
+                uniqueKey = TableToString(GetQueryFromFile(GetUniqueKeysQueryPath).Replace("@Schema", schemaName).Replace("@Table", name), connstr);
             }
             catch (Exception e)
             {
                 Console.WriteLine("Failed when excute query in {0}. \n Details:{1}", GetUniqueKeysQueryPath, e.Message);
-                throw e;
+                throw;
             }
-            string keys = "<Keys>\n" + PrimaryKey + UniqueKey + "\n</Keys>";
-            if (PrimaryKey == "" && UniqueKey == "")
+            var keys = "<Keys>\n" + primaryKey + uniqueKey + "\n</Keys>";
+            if (primaryKey == "" && uniqueKey == "")
             {
                 keys = "";
             }
 
             try
             {
-                Index = TableToString(GetQueryFromFile(GetIndexesQueryPath).Replace("@Schema", SchemaName).Replace("@Table", Name), connstr);
+                index = TableToString(GetQueryFromFile(GetIndexesQueryPath).Replace("@Schema", schemaName).Replace("@Table", name), connstr);
             }
             catch (Exception e)
             {
                 Console.WriteLine("Failed when excute query in {0}. \n Details:{1}", GetIndexesQueryPath, e.Message);
-                throw e;
+                throw;
             }
-            string indexes = "<Indexes>\n" + Index + "\n</Indexes>";
-            if (Index == "")
+            var indexes = "<Indexes>\n" + index + "\n</Indexes>";
+            if (index == "")
             {
                 indexes = "";
             }
 
             try
             {
-                CustomExension = TableToString(GetQueryFromFile(GetCustomExtensionQueryPath).Replace("@Schema", SchemaName).Replace("@Table", Name), connstr);
+                customExension = TableToString(GetQueryFromFile(GetCustomExtensionQueryPath).Replace("@Schema", schemaName).Replace("@Table", name), connstr);
             }
             catch (Exception e)
             {
                 Console.WriteLine("Failed when excute query in {0}. \n Details:{1}", GetCustomExtensionQueryPath, e.Message);
-                throw e;
+                throw;
             }
-            string customExensions = "<CustomExtensions Name=\"Alter Keys\">\n <Tasks>\n <ExecuteSQL Name=\"Custom Update\" ConnectionName=\"" +
-                ConnectionName + "\">\n <Query QueryType=\"Standard\">\n <Body>\n" +
-                CustomExension + "\n</Body> </Query>\n </ExecuteSQL>\n </Tasks>\n </CustomExtensions>";
-            if (CustomExension == "")
+            var customExensions = "<CustomExtensions Name=\"Alter Keys\">\n <Tasks>\n <ExecuteSQL Name=\"Custom Update\" ConnectionName=\"" +
+                connectionName + "\">\n <Query QueryType=\"Standard\">\n <Body>\n" +
+                customExension + "\n</Body> </Query>\n </ExecuteSQL>\n </Tasks>\n </CustomExtensions>";
+            if (customExension == "")
             {
                 customExensions = "";
             }
 
-            string vulcanHeader = "<?xml version=\"1.0\" encoding=\"utf-8\"?> \n <Vulcan xmlns=\"http://tempuri.org/vulcan2.xsd\"> \n <@Types> \n <@Type Name=\"@Table\" SchemaName=\"@Schema\" ConnectionName=\"@ConnectionName\" EmitVersionNumber=\"false\"> \n"
-                .Replace("@Type", Type).Replace("@Schema", SchemaName).Replace("@Table", Name).Replace("@ConnectionName", ConnectionName);
-            string vulcanFooter = "\n </@Type> \n </@Types> \n </Vulcan>".Replace("@Type", Type);
+            var vulcanHeader = "<?xml version=\"1.0\" encoding=\"utf-8\"?> \n <Vulcan xmlns=\"http://tempuri.org/vulcan2.xsd\"> \n <@Types> \n <@Type Name=\"@Table\" SchemaName=\"@Schema\" ConnectionName=\"@ConnectionName\" EmitVersionNumber=\"false\"> \n"
+                .Replace("@Type", type).Replace("@Schema", schemaName).Replace("@Table", name).Replace("@ConnectionName", connectionName);
+            var vulcanFooter = "\n </@Type> \n </@Types> \n </Vulcan>".Replace("@Type", type);
             result = vulcanHeader + columns + "\n" + keys + "\n" + indexes + "\n" + customExensions + vulcanFooter;
             return result;
         }
@@ -180,16 +188,16 @@ namespace TableToVulcan
         static readonly string GetUniqueKeysQueryPath = AppDomain.CurrentDomain.BaseDirectory + @"GetUniqueKeysQuery.txt";
         static readonly string GetIndexesQueryPath = AppDomain.CurrentDomain.BaseDirectory + @"GetIndexesQuery.txt";
 
-        private static void WriteXML(string Data, string xmlPath)
+        private static void WriteXml(string data, string xmlPath)
         {
-            XElement doc = XElement.Parse(Data);
+            var doc = XElement.Parse(data);
             doc.Save(xmlPath);
         }
-        static string GetQueryFromFile(string FileName)
+        static string GetQueryFromFile(string fileName)
         {
             try
             {
-                using (StreamReader sr = new StreamReader(FileName))
+                using (var sr = new StreamReader(fileName))
                 {
                     return sr.ReadToEnd();
                 }
@@ -197,20 +205,20 @@ namespace TableToVulcan
             catch (Exception e)
             {
                 Console.WriteLine("Failed to Open query configuration file.\n Details:{0}", e.Message);
-                throw e;
+                throw;
             }
 
         }
         static string TableToString(string query, string connstr)
         {
 
-            DataTable dt = new DataTable();
+            var dt = new DataTable();
             try
             {
-                using (SqlConnection conn = new SqlConnection(connstr))
+                using (var conn = new SqlConnection(connstr))
                 {
                     conn.Open();
-                    SqlDataAdapter dap = new SqlDataAdapter(query, connstr);
+                    var dap = new SqlDataAdapter(query, connstr);
                     dap.Fill(dt);
                 }
             }
@@ -221,7 +229,7 @@ namespace TableToVulcan
                 throw e;
             }
 
-            return String.Join("\n", dt.AsEnumerable().Select(p => p[0].ToString()));
+            return string.Join("\n", dt.AsEnumerable().Select(p => p[0].ToString()));
 
         }
 
@@ -234,8 +242,8 @@ namespace TableToVulcan
         private static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
         {
             // Get the subdirectories for the specified directory.
-            DirectoryInfo dir = new DirectoryInfo(sourceDirName);
-            DirectoryInfo[] dirs = dir.GetDirectories();
+            var dir = new DirectoryInfo(sourceDirName);
+            var dirs = dir.GetDirectories();
 
             if (!dir.Exists)
             {
@@ -251,21 +259,19 @@ namespace TableToVulcan
             }
 
             // Get the files in the directory and copy them to the new location.
-            FileInfo[] files = dir.GetFiles();
-            foreach (FileInfo file in files)
+            var files = dir.GetFiles();
+            foreach (var file in files)
             {
-                string temppath = Path.Combine(destDirName, file.Name);
+                var temppath = Path.Combine(destDirName, file.Name);
                 file.CopyTo(temppath, false);
             }
 
             // If copying subdirectories, copy them and their contents to new location. 
-            if (copySubDirs)
+            if (!copySubDirs) return;
+            foreach (var subdir in dirs)
             {
-                foreach (DirectoryInfo subdir in dirs)
-                {
-                    string temppath = Path.Combine(destDirName, subdir.Name);
-                    DirectoryCopy(subdir.FullName, temppath, copySubDirs);
-                }
+                var temppath = Path.Combine(destDirName, subdir.Name);
+                DirectoryCopy(subdir.FullName, temppath, true);
             }
         }
         enum VulcanType

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using XSearch.Common;
 using XSearch.Data;
-using XSearch.DAL.Repository.Core;
 using XSearch.Repository.Core;
 
 namespace XSearch.Repository

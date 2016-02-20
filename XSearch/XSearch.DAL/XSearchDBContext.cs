@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
 using XSearch.Data;
-using XSearch.DAL;
 
 namespace XSearch
 {
@@ -10,8 +9,9 @@ namespace XSearch
         public XSearchDbContext()
             : base("XSearch")
         {
-            //Database.SetInitializer<XSearchDBContext>(new DropCreateDatabaseIfModelChanges<XSearchDBContext>());
             Database.SetInitializer(new CreateDatabaseIfNotExists<XSearchDbContext>());
+            //Database.SetInitializer<XSearchDBContext>(new DropCreateDatabaseIfModelChanges<XSearchDBContext>());
+            //Database.SetInitializer(new SchoolDbInitializer());
         }
 
         public DbSet<ObjMapping> ObjMappings { get; set; }
@@ -25,13 +25,13 @@ namespace XSearch
 
     }
 
-    public class SchoolDbInitializer : CreateDatabaseIfNotExists<XSearchDbContext>
-    {
-        protected override void Seed(XSearchDbContext context)
-        {
-            if (context == null) throw new ArgumentNullException("context");
-            base.Seed(context);
-        }
-    }
+    //public class SchoolDbInitializer : CreateDatabaseIfNotExists<XSearchDbContext>
+    //{
+    //    protected override void Seed(XSearchDbContext context)
+    //    {
+    //        if (context == null) throw new ArgumentNullException("context");
+    //        base.Seed(context);
+    //    }
+    //}
 
 }

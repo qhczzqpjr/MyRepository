@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DESPortalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Requirement">
+    <Key>
+      <PropertyRef Name="RequirementId" />
+    </Key>
+    <Property Name="RequirementId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RequirementCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RequirementDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RequirementContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="DESProtalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Requirements" EntityType="Self.Requirement" />
+    <FunctionImport Name="usp_GetCloseTaskPercentage" ReturnType="Collection(Double)" />
+    <FunctionImport Name="usp_InsertTask">
+      <Parameter Name="TaskName" Mode="In" Type="String" />
+      <Parameter Name="TaskStatusName" Mode="In" Type="String" />
+      <Parameter Name="SourceTaskId" Mode="In" Type="Int32" />
+      <Parameter Name="TeamMemberName" Mode="In" Type="String" />
+      <Parameter Name="SprintID" Mode="In" Type="String" />
+      <Parameter Name="Commonts" Mode="In" Type="String" />
+      <Parameter Name="OwnerName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_InsertTaskLog">
+      <Parameter Name="TaskId" Mode="In" Type="Int32" />
+      <Parameter Name="TaskStatusId" Mode="In" Type="Int32" />
+      <Parameter Name="TeamMemberId" Mode="In" Type="Int32" />
+      <Parameter Name="Comments" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_SavePerformanceAudit">
+      <Parameter Name="TeammemberName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_UpdateTask">
+      <Parameter Name="TaskId" Mode="In" Type="Int32" />
+      <Parameter Name="TaskName" Mode="In" Type="String" />
+      <Parameter Name="SourceTaskId" Mode="In" Type="Int32" />
+      <Parameter Name="TaskStatusId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_UpdateTaskStatus">
+      <Parameter Name="TaskId" Mode="In" Type="Int32" />
+      <Parameter Name="TaskStatusName" Mode="In" Type="String" />
+      <Parameter Name="TeamMemberName" Mode="In" Type="String" />
+      <Parameter Name="SprintID" Mode="In" Type="String" />
+      <Parameter Name="Commonts" Mode="In" Type="String" />
+      <Parameter Name="SoureceTaskID" Mode="In" Type="Int32" />
+      <Parameter Name="OwnerName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetTaskInitialData" ReturnType="Collection(DESPortalModel.usp_GetTaskInitialData_Result)" />
+  </EntityContainer>
+  <ComplexType Name="usp_GetTaskInitialData_Result">
+    <Property Type="Int32" Name="TaskId" Nullable="false" />
+    <Property Type="String" Name="TaskName" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="TaskStatus" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="SourceTaskId" Nullable="true" />
+    <Property Type="String" Name="Sprint" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Comments" Nullable="true" />
+    <Property Type="String" Name="EnglishName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="StartDateTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="EndDateTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="LastUpdatedDateTime" Nullable="true" Precision="23" />
+  </ComplexType>
+</Schema>

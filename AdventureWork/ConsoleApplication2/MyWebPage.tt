@@ -1,0 +1,22 @@
+﻿<#@ template language="C#" #>
+<#@include file="CommonHeader.txt" #>
+<html><body>
+<h1>Sales for January</h2>
+<table>
+<# foreach (MyDataItem item in m_data.Items) 
+   // m_data is declared in MyWebPageCode.cs
+   { #>
+      <tr><td> <#= item.Name #> </td>
+          <td> <#= item.Value #> </td></tr>
+<# } // end of foreach
+#>
+</table>
+<table>
+    <# for (int i = 1; i <= 2; i++)
+       { #>
+         <tr><td>Test name <#= i #> </td>
+             <td>Test value <#= i * i #> </td> </tr>
+    <# } #>
+ </table>
+This report is Company Confidential.
+</body></html>

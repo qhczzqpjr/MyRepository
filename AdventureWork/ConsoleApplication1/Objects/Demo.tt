@@ -1,0 +1,37 @@
+﻿<#@ template debug="true" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.Xml" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ output extension=".biml" #>
+Hello World! <#= this.ClassName #>
+<#= GetData(ReadRequirement("query.txt"),ReadRequirement("connection.txt"))#>
+<#= ReadRequirement("Test.sql") #>
+<#+
+string ClassName = "MyClass";
+ 
+public string GetData(string cmdTest, string connStr)
+{
+    DataTable datatable = new DataTable();
+    using (SqlConnection conn = new SqlConnection(connStr))
+    {
+        conn.Open();
+        SqlCommand sqlcommand = new SqlCommand(cmdTest,conn);
+        SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlcommand);
+        sqlDataAdapter.Fill(datatable);
+    }
+
+    return datatable.Rows.Cast<DataRow>().Aggregate("", (current, row) => current + row[0].ToString()+Environment.NewLine);
+}
+string _workingdirectory = @"C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\AdventureWork\ConsoleApplication1\Queries";
+
+public string ReadRequirement(string RequirementCode)
+{
+	return File.ReadAllText(Path.Combine(_workingdirectory,RequirementCode));
+}
+#>

@@ -6,3 +6,4 @@ pip install structlog
 pip install watchdog
 pip install sh
 pip install delorean
+pip install requests

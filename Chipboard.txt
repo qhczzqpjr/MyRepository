@@ -1,1 +1,7 @@
 http://www.awwwards.com/15-great-chrome-extensions-for-web-designers-and-developers.html
+#Standard
+http://www.bzfxw.com/
+#Start Google PinYue
+http://www.google.cn/intl/zh-CN/ime/pinyin/api.html
+C:\Documents and Settings\All Users\Application Data\Google\Google Pinyin 2\Extensions
+#End

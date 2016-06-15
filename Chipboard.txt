@@ -5,3 +5,7 @@ http://www.bzfxw.com/
 http://www.google.cn/intl/zh-CN/ime/pinyin/api.html
 C:\Documents and Settings\All Users\Application Data\Google\Google Pinyin 2\Extensions
 #End
+
+#Hadoop platform
+http://hortonworks.com/
+#

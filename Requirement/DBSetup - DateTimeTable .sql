@@ -344,3 +344,14 @@ CREATE TABLE DateTimeMapping
       TimeId SMALLINT ,
       CONSTRAINT [PK_DateTimeMapping] PRIMARY KEY CLUSTERED ( DateTimeId ASC )--WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
     )--GO
+    
+insert DateTimeMapping
+select DateId+TimeId,DateId,TimeId from DateBase_Computed, TimeBase_Computed
+/*
+declare @datetimeid datetime2= '1971-12-31 11:23:59:123'
+ select CONVERT(bigint,DATEPART(yyyy,@datetimeid))*100000000
+ +DATEPART(mm,@datetimeid)*1000000
+ +DATEPART(dd,@datetimeid)*10000
+ +DATEPART(hh,@datetimeid)*100
+ +DATEPART(MINUTE,@datetimeid)
+ */

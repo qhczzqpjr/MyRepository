@@ -9,22 +9,19 @@ if v:progname =~? "evim"
   finish
 endif
 
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
   set backup		" keep a backup file
 endif
 
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
 set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
-
-" 允许退格键删除和tab操作 
+set ignorecase
 set smartindent 
 set smarttab 
 set expandtab 
@@ -36,21 +33,24 @@ set textwidth=0
 set wrapmargin=0
 set formatoptions+=l
 set nu
+set autochdir
+
+set ruler		" show the cursor position all the time
+"set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%) "display datetime
+set laststatus=2 "black status line at bottom of window
+if has("win32")
+  set statusline=%<%f%h%m%r%=%{strftime(\"%I:%M:%S\ \%p,\ %a\ %b\ %d,\ %Y\")}\ %{&ff}\ %l,%c%V\ %P
+else
+  set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M:%S\ \%p,\ %a\ %b\ %d,\ %Y\")}\ %{&ff}\ %l,%c%V\ %P
+endif
 
 
-" 设置编码自动识别, 中文引号显示 
+" detect coding format 
 "set fileencodings=utf-8,cp936,big5,euc-jp,euc-kr,latin1,ucs-bom,ucs-2le
 set fileencodings=utf-8,gbk,ucs-2le
 set ambiwidth=double
 
-"ColorScheme
-colorscheme desert
-
-
 set completeopt=longest,menu
-
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
 
 " Set mapleader
 let mapleader=","
@@ -62,10 +62,46 @@ let mapleader=","
 " :cmap - Display command-line mode maps
 " :omap - Display operator pending mode maps
 
+"""""""""""""""""""""" Window Section - Start """""""""""""""""""
+" GUI controEnd
+:set guioptions-=m  "remove menu bar
+:set guioptions-=T  "remove toolbar
+:set guioptions-=r  "remove right-hand scroll bar
+:set guioptions-=L  "remove left-hand scroll bar
+
+" Maps Alt-[h,j,k,l] to resizing a window split
+map <silent> <A-h> <C-w><
+map <silent> <A-j> <C-W>-
+map <silent> <A-k> <C-W>+
+map <silent> <A-l> <C-w>>
+" Maps Alt-[s.v] to horizontal and vertical split respectively
+map <silent> <A-s> :split<CR>
+map <silent> <A-v> :vsplit<CR>
+" Maps Alt-[n,p] for moving next and previous window respectively
+map <silent> <A-n> <C-w><C-w>
+map <silent> <A-p> <C-w><S-w>
+
+"WinManager
+"Window Layerout
+""let g:winManagerWindowLayout = "BufExplorer,NERDTree|TagList"
+"let g:winManagerWindowLayout = "BufExplorer,FileExplorer|TagList"
+let g:winManagerWindowLayout = "NERDTree|TagList,BufExplorer"
+
+let g:winManagerWidth = 30
+"set F8 for open/hide winmanager
+nmap <silent> <F8> :WMToggle<cr>
+"auto open winmanager
+let g:AutoOpenWinManager = 1
+
+"""""""""""""""""""""" Window Section - End """""""""""""""""""
+
+"""""""""""""""""""""" Edit Section - Start """""""""""""""""""
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
-map <leader>n <esc>:tabp<CR>
-map <leader>m <esc>:tabn<CR>
+map <leader>cd :cd C:\Users\qz55554\Documents\Db<CR>
+map <leader>tp <esc>:tabp<CR>
+map <leader>tn <esc>:tabn<CR>
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -81,12 +117,22 @@ if has('mouse')
   set mouse=a
 endif
 
+
+"""""""""""""""""""""" Edit Section - End """""""""""""""""""
+
+"""""""""""""""""""""" Color Section - Start """""""""""""""""""
+
+"ColorScheme
+colorscheme lightning
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
 endif
+
+"""""""""""""""""""""" Color Section - End """""""""""""""""""
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -155,17 +201,6 @@ let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 "let Tlist_Use_Right_Window =1
 
-"WinManager
-"设置界面分割
-"let g:winManagerWindowLayout = "BufExplorer,NERDTree|TagList"
-"let g:winManagerWindowLayout = "BufExplorer,FileExplorer|TagList"
-let g:winManagerWindowLayout = "NERDTree|TagList,BufExplorer"
-"设置winmanager的宽度，默认为25
-let g:winManagerWidth = 30
-"定义打开关闭winmanager按键
-nmap <silent> <F8> :WMToggle<cr>
-"在进入vim时自动打开winmanager
-let g:AutoOpenWinManager = 1
 
 "cscope show in quickfix
 set cscopequickfix=s-,c-,d-,i-,t-,e-
@@ -212,3 +247,4 @@ function MyDiff()
   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
+ 

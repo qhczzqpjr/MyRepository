@@ -38,8 +38,8 @@ DataFrame -> fundment, basic element, every in spark is data frame
 * df1 = df.groupBy(df.name).count()
 * df.groupBy().avg().collect()
 * df.groupBy('name').avg('age','grade'),collect()
-** only single for user define the function
-    use explode to get a new column
+* only single for user define the function, use explode to get a new column
+
 ### Row visit method 
 * row.name / row['name']
 
@@ -53,7 +53,7 @@ DataFrame -> fundment, basic element, every in spark is data frame
 * df.describe(col) -- stat -min,max,sdet,count
 * print df.count()
 * df.cache() --reuse df
-**: warning use collect, get all data leads to outofmemory
+* warning use collect, get all data leads to outofmemory(OOM)
 
 # best practise
 ## Where does the code run - Driver/ Distributed executor / both
@@ -65,10 +65,9 @@ DataFrame -> fundment, basic element, every in spark is data frame
 * Use cache for reused dataFrame
 
 # Appendix
-Life Cycle is important for learning a new technology, best practise
-<http://spark.apache.org/docs/latest/programming-guide.html>
-<http://spark.apache.org/docs/latest/api/python/index.html>
-<http://spark.apache.org/docs/latest/api/python/pyspark.sql.html>
-<http://spark.apache.org/docs/latest/api/scala/>
-<https://community.cloud.databricks.com/> 
-{gmail,microsoft}
+*Life Cycle and best practise are important for learning a new technology.
+*<http://spark.apache.org/docs/latest/programming-guide.html>
+*<http://spark.apache.org/docs/latest/api/python/index.html>
+*<http://spark.apache.org/docs/latest/api/python/pyspark.sql.html>
+*<http://spark.apache.org/docs/latest/api/scala/>
+*<https://community.cloud.databricks.com/>  {gmail,microsoft}

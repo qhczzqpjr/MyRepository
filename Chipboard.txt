@@ -12,3 +12,4 @@ http://hortonworks.com/
 http://sqlblog.com/blogs/paul_white/archive/2012/04/28/query-optimizer-deep-dive-part-1.aspx> 
 # spark-internals book
 http://spark-internals.books.yourtion.com/markdown/1-Overview.html
+http://tinyurl.com/Spark-DS-Files

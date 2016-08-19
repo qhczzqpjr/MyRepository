@@ -13,3 +13,26 @@ http://sqlblog.com/blogs/paul_white/archive/2012/04/28/query-optimizer-deep-dive
 # spark-internals book
 http://spark-internals.books.yourtion.com/markdown/1-Overview.html
 http://tinyurl.com/Spark-DS-Files
+
+# VIM Plugin
+scrooloose/nerdtree
+scrooloose/nerdcommenter
+tpope/vim-fugitive
+lokaltog/vim-powerline
+shougo/unite.vim
+vim-scripts/Gundo
+altercation/vim-colors-solarized
+nathanaelkane/vim-indent-guides
+bronson/vim-trailing-whitespace
+kien/rainbow_parentheses.vim
+godlygeek/tabular
+Lokaltog/vim-easymotion
+valloric/youcompleteme
+ervandew/supertab
+mattn/emmet-vim
+honza/vim-snippets
+SirVer/ultisnips
+mattn/emmet-vim
+tpope/vim-surround
+tpope/vim-repeat
+vimwiki

@@ -25,6 +25,9 @@ altercation/vim-colors-solarized
 nathanaelkane/vim-indent-guides
 bronson/vim-trailing-whitespace
 kien/rainbow_parentheses.vim
+vim-indent-guides
+vim-scripts/matchit.zip
+Raimondi/delimitMate
 godlygeek/tabular
 Lokaltog/vim-easymotion
 valloric/youcompleteme
@@ -35,4 +38,5 @@ SirVer/ultisnips
 mattn/emmet-vim
 tpope/vim-surround
 tpope/vim-repeat
+vim-scripts/TaskList.vim
 vimwiki

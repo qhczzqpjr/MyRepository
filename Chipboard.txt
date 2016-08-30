@@ -40,6 +40,7 @@ tpope/vim-surround
 tpope/vim-repeat
 vim-scripts/TaskList.vim
 vimwiki
+chusiang/vim-sdcv
 # vim map
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>

@@ -44,3 +44,5 @@ chusiang/vim-sdcv
 # vim map
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+# vim build in window
+http://vim.wikia.com/wiki/Build_Python-enabled_Vim_on_Windows_with_MinGW

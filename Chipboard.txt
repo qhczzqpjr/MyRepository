@@ -46,3 +46,8 @@ chusiang/vim-sdcv
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 # vim build in window
 http://vim.wikia.com/wiki/Build_Python-enabled_Vim_on_Windows_with_MinGW
+# git config
+lg = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold red)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+        mlg = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold red)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all -10
+        changed = show --pretty=\"format:\" --name-only
+  helper = wincred

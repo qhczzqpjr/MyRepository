@@ -1,0 +1,7 @@
+npm -v
+npm search express
+::npm install <Module Name>
+npm install express 
+npm ls
+::$ npm uninstall express
+npm update express

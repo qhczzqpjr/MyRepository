@@ -1,6 +1,0 @@
-G:\GitHub\MyRepository\Portal\Portal\Common\bin\Debug\Common.dll.config
-G:\GitHub\MyRepository\Portal\Portal\Common\bin\Debug\Common.dll
-G:\GitHub\MyRepository\Portal\Portal\Common\bin\Debug\Common.pdb
-G:\GitHub\MyRepository\Portal\Portal\Common\obj\Debug\Common.dll
-G:\GitHub\MyRepository\Portal\Portal\Common\obj\Debug\Common.pdb
-G:\GitHub\MyRepository\Portal\Portal\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache

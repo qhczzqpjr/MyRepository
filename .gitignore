@@ -41,3 +41,9 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Img
+*.jpg
+# Vim
+*.swo
+*.swp

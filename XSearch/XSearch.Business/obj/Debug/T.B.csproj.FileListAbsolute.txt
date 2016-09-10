@@ -1,5 +1,0 @@
-C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Test\T.B\bin\Debug\T.B.exe.config
-C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Test\T.B\bin\Debug\T.B.exe
-C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Test\T.B\bin\Debug\T.B.pdb
-C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Test\T.B\obj\Debug\T.B.exe
-C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Test\T.B\obj\Debug\T.B.pdb

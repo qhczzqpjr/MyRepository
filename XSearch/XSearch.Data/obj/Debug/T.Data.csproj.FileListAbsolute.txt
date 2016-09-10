@@ -1,4 +1,0 @@
-C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Test\T.Data\bin\Debug\T.Data.dll
-C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Test\T.Data\bin\Debug\T.Data.pdb
-C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Test\T.Data\obj\Debug\T.Data.dll
-C:\Users\v-thzhu\Documents\Visual Studio 2013\Projects\Test\T.Data\obj\Debug\T.Data.pdb

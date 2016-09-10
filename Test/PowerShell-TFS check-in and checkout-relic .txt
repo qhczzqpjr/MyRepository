@@ -1,7 +1,0 @@
-TFS check-in and checkout:
-$env:Path = $env:Path + ";C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE"  ---Add environment variable .
-Cd "E:\ecotfs\Detego_AskME\Archive\DEV\SSIS"
-TF.exe  add "$/Detego_AskME/Archive/DEV/Audit/ETL" /recursive
-TF.exe  checkin "$/Detego_AskME/Archive/DEV/Audit/ETL" /recursive
-TF.exe  checkout "$/Detego_AskME/Archive/DEV/Audit/ETL" /recursive 
-TF.exe  delete "$/Detego_AskME/Archive/DEV/Audit/ETL" /recursive

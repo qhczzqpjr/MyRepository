@@ -1,3 +1,28 @@
+body {
+    background-image:url('images/PaintSquares_1400x900.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    position:relative;
+}
+
+/*
+nav>ul{
+list-style: none;
+background-color:#444
+}
+*/
+
+ul li {
+    list-style: none;
+    display: inline-block;
+    background-color: red;
+}
+
+
 div#main{
-background:#33FFFF
+
+}
+
+h1 {
+
 }
